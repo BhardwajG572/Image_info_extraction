@@ -68,14 +68,13 @@ Open the Streamlit URL it prints (usually http://localhost:8501).
    or manually override each one individually, then "Apply corrections."
 4. **Corrected gallery** — same preview capability on the corrected set.
 5. **Pick a model** from the dropdown (all 8 models from your registry are
-   available) and click **Extract Data From All Images**. Extracted JSON
-   appears under each image.
+available) and click **Extract Data From All Images**. The extraction flow now
+sends image batches of up to two images in parallel for faster, more robust
+LLM extraction. Extracted JSON appears under each image.
 6. **Generate Summary** — pure-Python merge (backend/deterministic_merge.py,
-   zero LLM calls). Fields that agree across images are accepted; fields
-   that disagree are flagged as `WARNING: Discrepancy Found` with all
-   candidate values shown, and a best-guess (highest model confidence) is
-   still surfaced so the table isn't empty.
-
+zero LLM calls). Fields that agree across images are accepted; fields
+that disagree are flagged as `WARNING: Discrepancy Found` with all
+candidate values shown, and no value is automatically accepted on conflict.
 ## 4. Project layout
 
 ```text
@@ -110,9 +109,6 @@ tire-inspection-pipeline/
   Inference Providers marketplace, not HF's own infra — pricing/availability
   differs per provider and depends on your HF account having provider access
   enabled.
-- **Discrepancy resolution**: currently automatic (highest-confidence value
-  wins as "best guess," original is still shown). If you want a hard stop
-  requiring human sign-off before the summary is finalized, that's a small
-  change to Phase 6 in `frontend/app.py` (gate on `warnings` being empty).
+- **Discrepancy resolution**: currently conflict-aware and conservative. When different images disagree, the pipeline flags the conflict and does not accept any value automatically. If you want a hard stop requiring human sign-off before the summary is finalized, that's a small change to Phase 6 in `frontend/app.py` (gate on `warnings` being empty).
 - The zoom/pan viewer supports single-finger pan on touch devices but not
   pinch-to-zoom yet — flag if you need that added.

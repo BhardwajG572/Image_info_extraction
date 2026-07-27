@@ -27,17 +27,32 @@ DEFAULT_MODEL = "Google Gemma 4 (31B-It)"
 
 # Canonical field order for summary table rendering
 CANONICAL_FIELD_ORDER = [
-    "Brand",
-    "Size",
+    "BRAND",
+    "MODEL",
+    "SIZE",
+    "MOULD",
+    "LOAD_IDX",
+    "SPEED",
     "DOT",
-    "Load_Index",
-    "Speed_Rating",
-    "Plies",
-    "Manufacture_Date",
-    "Tread_Pattern",
-    "Country_of_Origin",
-    "Max_Pressure",
-    "Raw_Notes",
+    "DPC",
+    "DMC",
+    "PSI",
+    "KPA",
+    "LOAD_KG",
+    "LOAD_LBS",
+    "TYPE",
+    "SAFETY",
+    "MARK",
+    "TRAC",
+    "TEMP",
+    "TWEAR",
+    "UTQG",
+    "INDIA",
+    "P_TREAD",
+    "SIDEWALL",
+    "NOISE",
+    "ECE",
+    "ISI"
 ]
 
 # Backend host/port used by the Streamlit frontend to reach FastAPI.

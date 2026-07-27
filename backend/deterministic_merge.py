@@ -11,14 +11,11 @@ from typing import Any, Optional
 
 from backend.config import CANONICAL_FIELD_ORDER
 
-# Add 'extracted_lines' to bypass standard string comparison logic
-_NON_MERGED_KEYS = ("confidence", "raw_text_seen", "extracted_lines")
+_NON_MERGED_KEYS = ("confidence", "raw_text_seen")
 
 
 def _normalize(value: Any) -> str:
-    """Safely normalizes strings or lists for comparison."""
-    if isinstance(value, list):
-        value = " ".join(str(v) for v in value)
+    """Normalizes strings to ignore case and minor whitespace differences during comparison."""
     return " ".join(str(value).strip().upper().split())
 
 
@@ -27,42 +24,38 @@ def merge_extractions(image_extractions: list[dict]) -> dict:
     image_extractions: list of
       {
         "image_id": str,
-        "parsed": { field: value, ..., "confidence": {field: score}, "extracted_lines": [...] }
+        "parsed": { field: value, ..., "confidence": {field: score} }
       }
     """
     field_values: dict[str, list[dict[str, Any]]] = defaultdict(list)
     all_fields = set(CANONICAL_FIELD_ORDER)
-    
-    master: dict[str, Any] = {}
     warnings: list[str] = []
-    field_report: dict[str, Any] = {}
 
-    # --- Special Handling for pure OCR Line Extraction ---
-    master_lines = []
-    seen_lines = set()
+    for item in image_extractions or []:
+        if not isinstance(item, dict):
+            warnings.append(f"Skipping invalid extraction entry: {item!r}")
+            continue
 
-    for item in image_extractions:
         image_id = item.get("image_id", "unknown")
         parsed = item.get("parsed", {}) or {}
+        if not isinstance(parsed, dict):
+            warnings.append(
+                f"Skipping invalid parsed payload for image '{image_id}'"
+            )
+            continue
+
         confidences = parsed.get("confidence", {}) or {}
+        if not isinstance(confidences, dict):
+            confidences = {}
 
-        # Safely extract and deduplicate OCR lines across all images
-        lines = parsed.get("extracted_lines", [])
-        if isinstance(lines, list):
-            for line in lines:
-                norm_line = _normalize(line)
-                if norm_line and norm_line not in seen_lines:
-                    seen_lines.add(norm_line)
-                    master_lines.append(line)
-
-        # Standard field extraction
         for field, value in parsed.items():
             if field in _NON_MERGED_KEYS:
                 continue
             all_fields.add(field)
-            if value is None or str(value).strip() == "":
+            # Skip empty or null values
+            if value is None or (isinstance(value, str) and str(value).strip() == ""):
                 continue
-            
+
             field_values[field].append(
                 {
                     "image_id": image_id,
@@ -71,15 +64,10 @@ def merge_extractions(image_extractions: list[dict]) -> dict:
                 }
             )
 
-    # Attach aggregated OCR lines to the master record
-    if master_lines:
-        master["extracted_lines"] = master_lines
-        field_report["extracted_lines"] = {
-            "status": "aggregated",
-            "sources": [item.get("image_id", "unknown") for item in image_extractions]
-        }
+    master: dict[str, Any] = {}
+    field_report: dict[str, Any] = {}
 
-    # --- Standard Handling for Structured JSON Schema ---
+    # Sort fields so canonical fields show up first, followed by any extras found
     ordered_fields = [f for f in CANONICAL_FIELD_ORDER if f in all_fields and f not in _NON_MERGED_KEYS]
     ordered_fields += sorted(f for f in all_fields if f not in CANONICAL_FIELD_ORDER and f not in _NON_MERGED_KEYS)
 
@@ -96,6 +84,7 @@ def merge_extractions(image_extractions: list[dict]) -> dict:
             distinct.setdefault(key, []).append(c)
 
         if len(distinct) == 1:
+            # PERFECT MATCH: All extractions agree
             accepted_value = candidates[0]["value"]
             master[field] = accepted_value
             field_report[field] = {
@@ -104,16 +93,10 @@ def merge_extractions(image_extractions: list[dict]) -> dict:
                 "sources": [c["image_id"] for c in candidates],
             }
         else:
-            def sort_key(c):
-                conf = c["confidence"]
-                return conf if isinstance(conf, (int, float)) else -1
-
-            best = max(candidates, key=sort_key)
-            master[field] = best["value"]
+            # STRICT NO-GUESSING LOGIC
+            master[field] = None
             field_report[field] = {
                 "status": "DISCREPANCY",
-                "best_guess": best["value"],
-                "best_guess_source": best["image_id"],
                 "all_candidates": candidates,
             }
             variant_summary = ", ".join(
@@ -121,8 +104,33 @@ def merge_extractions(image_extractions: list[dict]) -> dict:
             )
             warnings.append(
                 f"WARNING: Discrepancy found for '{field}': {variant_summary}. "
-                f"Best guess used: {best['value']!r} (from {best['image_id']})."
+                "No value was accepted because the extractions disagree."
             )
+
+    # ==========================================
+    # CUSTOM BUSINESS LOGIC FOR UTQG
+    # ==========================================
+    # Check if TRAC and TEMP successfully made it into the master record
+    trac_present = bool(master.get("TRAC"))
+    temp_present = bool(master.get("TEMP"))
+
+    if trac_present and temp_present:
+        utqg_value = "UTQG"
+    elif trac_present and not temp_present:
+        utqg_value = "UTQG A"
+    elif not trac_present and temp_present:
+        utqg_value = "UTQG B"
+    else:
+        utqg_value = "UTQG A/B"
+
+    # Force the derived UTQG value into the master record
+    master["UTQG"] = utqg_value
+    field_report["UTQG"] = {
+        "status": "agreed",
+        "value": utqg_value,
+        "sources": ["business_logic_derived"]
+    }
+    # ==========================================
 
     return {
         "master_record": master,

@@ -61,4 +61,27 @@ def extract(req: ExtractRequest):
 def merge(req: MergeRequest):
     if not req.extractions:
         raise HTTPException(status_code=400, detail="No extractions provided to merge.")
-    return merge_extractions(req.extractions)
+    try:
+        return merge_extractions(req.extractions)
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=f"Merge failed: {exc}") from exc
+
+
+class ExtractBatchRequest(BaseModel):
+    images: list[ExtractRequest]
+
+
+@app.post("/extract_batch")
+def extract_batch(req: ExtractBatchRequest):
+    results = []
+    for im in req.images:
+        try:
+            res = extract_from_image(
+                model_key=im.model_key,
+                image_b64=im.image_b64,
+                temperature=im.temperature,
+            )
+            results.append({"image_id": im.image_id, **res})
+        except ExtractionError as exc:
+            results.append({"image_id": im.image_id, "error": str(exc)})
+    return {"results": results}

@@ -12,6 +12,8 @@ Phase 5: automatic deterministic (non-LLM) master summary
 Run with:  uv run streamlit run frontend/app.py
 """
 import base64
+import concurrent.futures
+import time
 import uuid
 
 import requests
@@ -147,26 +149,78 @@ if st.session_state["preprocessed_images"]:
         total = len(st.session_state["preprocessed_images"])
         progress = st.progress(0.0, text="Starting...")
 
-        for idx, img in enumerate(st.session_state["preprocessed_images"]):
-            progress.progress(idx / total, text=f"Extracting {img['filename']}...")
+        def _get_http_error_details(error: requests.HTTPError) -> str:
+            response = error.response
+            if response is None:
+                return str(error)
             try:
-                resp = requests.post(
-                    f"{BACKEND_URL}/extract",
-                    json={
-                        "image_id": img["image_id"],
-                        "image_b64": img["b64"],  # the preprocessed image
-                        "model_key": model_key,
-                    },
-                    timeout=120,
-                )
-                resp.raise_for_status()
-                st.session_state["extractions"][img["image_id"]] = resp.json()
-            except requests.HTTPError as e:
-                st.session_state["extractions"][img["image_id"]] = {"error": str(e)}
-            except Exception as e:
-                st.session_state["extractions"][img["image_id"]] = {"error": str(e)}
+                payload = response.json()
+                detail = payload.get("detail") or payload.get("message") or response.text
+            except ValueError:
+                detail = response.text
+            return f"{response.status_code} {response.reason}: {detail}"
 
-            progress.progress((idx + 1) / total, text=f"Processed {img['filename']}")
+        def _send_batch_request(batch: list[dict]) -> dict:
+            payload = {
+                "images": [
+                    {
+                        "image_id": img["image_id"],
+                        "image_b64": img["b64"],
+                        "model_key": model_key,
+                    }
+                    for img in batch
+                ]
+            }
+
+            retries = 3
+            backoff = 1.0
+            for attempt in range(1, retries + 1):
+                try:
+                    resp = requests.post(
+                        f"{BACKEND_URL}/extract_batch",
+                        json=payload,
+                        timeout=240,
+                    )
+                    resp.raise_for_status()
+                    return {"success": True, "data": resp.json()}
+                except requests.HTTPError as e:
+                    if attempt == retries:
+                        return {"success": False, "error": _get_http_error_details(e)}
+                    time.sleep(backoff)
+                    backoff *= 2
+                except Exception as e:
+                    if attempt == retries:
+                        return {"success": False, "error": str(e)}
+                    time.sleep(backoff)
+                    backoff *= 2
+
+        batch_size = 2
+        max_workers = 3
+        images = st.session_state["preprocessed_images"]
+        batches = [images[i : i + batch_size] for i in range(0, len(images), batch_size)]
+        processed = 0
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_batch = {
+                executor.submit(_send_batch_request, batch): batch for batch in batches
+            }
+            for future in concurrent.futures.as_completed(future_to_batch):
+                batch = future_to_batch[future]
+                result = future.result()
+                if result["success"]:
+                    data = result["data"]
+                    for item in data.get("results", []):
+                        if "error" in item:
+                            st.session_state["extractions"][item["image_id"]] = {"error": item["error"]}
+                        else:
+                            st.session_state["extractions"][item["image_id"]] = item
+                else:
+                    err = result["error"]
+                    for img in batch:
+                        st.session_state["extractions"][img["image_id"]] = {"error": err}
+
+                processed += len(batch)
+                progress.progress(processed / total, text=f"Processed {processed}/{total} images")
 
         valid_extractions = [
             {"image_id": iid, "parsed": e["parsed"]}
@@ -175,13 +229,20 @@ if st.session_state["preprocessed_images"]:
         ]
         if valid_extractions:
             progress.progress(1.0, text="Merging results...")
-            merge_resp = requests.post(
-                f"{BACKEND_URL}/merge",
-                json={"extractions": valid_extractions},
-                timeout=60,
-            )
-            merge_resp.raise_for_status()
-            st.session_state["merge_result"] = merge_resp.json()
+            try:
+                merge_resp = requests.post(
+                    f"{BACKEND_URL}/merge",
+                    json={"extractions": valid_extractions},
+                    timeout=60,
+                )
+                merge_resp.raise_for_status()
+                st.session_state["merge_result"] = merge_resp.json()
+            except requests.HTTPError as e:
+                st.session_state["merge_result"] = None
+                st.error(f"Merge failed: {_get_http_error_details(e)}")
+            except Exception as e:
+                st.session_state["merge_result"] = None
+                st.error(f"Merge failed: {e}")
 
         progress.empty()
         st.rerun()
