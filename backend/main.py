@@ -2,10 +2,10 @@
 FastAPI backend for the Tire Inspection Pipeline.
 
 Endpoints:
-  POST /extract   single-image VLM extraction (Gemma via Gemini API,
-                   also reports Detected_Orientation)
-  POST /merge      deterministic multi-image merge (no LLM)
-  GET  /models      list available models for the frontend dropdown
+  POST /extract       single-image VLM extraction (Gemma via Gemini API,
+                      also reports Detected_Orientation)
+  POST /merge         deterministic multi-image merge (no LLM)
+  GET  /models        list available models for the frontend dropdown
   GET  /health
 
 Run with:  uv run uvicorn backend.main:app --reload --port 8000
@@ -19,22 +19,18 @@ from backend.deterministic_merge import merge_extractions
 
 app = FastAPI(title="Tire Inspection Pipeline API", version="1.0.0")
 
-
 class ExtractRequest(BaseModel):
     image_id: str
     image_b64: str
     model_key: str = DEFAULT_MODEL
     temperature: float = 0.1
 
-
 class MergeRequest(BaseModel):
     extractions: list[dict]  # [{"image_id": ..., "parsed": {...}}, ...]
-
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
-
 
 @app.get("/models")
 def list_models():
@@ -42,7 +38,6 @@ def list_models():
         "default": DEFAULT_MODEL,
         "models": {k: {"model_id": v["model_id"]} for k, v in AVAILABLE_MODELS.items()},
     }
-
 
 @app.post("/extract")
 def extract(req: ExtractRequest):
@@ -56,7 +51,6 @@ def extract(req: ExtractRequest):
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     return {"image_id": req.image_id, **result}
 
-
 @app.post("/merge")
 def merge(req: MergeRequest):
     if not req.extractions:
@@ -66,10 +60,8 @@ def merge(req: MergeRequest):
     except Exception as exc:
         raise HTTPException(status_code=400, detail=f"Merge failed: {exc}") from exc
 
-
 class ExtractBatchRequest(BaseModel):
     images: list[ExtractRequest]
-
 
 @app.post("/extract_batch")
 def extract_batch(req: ExtractBatchRequest):

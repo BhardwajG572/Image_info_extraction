@@ -1,13 +1,10 @@
-"""
-Central configuration: environment secrets + the model registry.
-Nothing in the app should hardcode a model id or token outside this file.
-"""
+# backend/config.py
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Google Gemini API key - used to call Gemma models via the Gemini API
+# Google Gemini API key
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
@@ -16,7 +13,7 @@ if not GEMINI_API_KEY:
         "(get one at https://aistudio.google.com/apikey)."
     )
 
-# Gemma 4 models, served via the Gemini API (multimodal, image input supported)
+# Model Registry
 AVAILABLE_MODELS = {
     "Google Gemma 4 (31B-It)": {"model_id": "gemma-4-31b-it"},
     "Google Gemma 4 (26B-A4B-It)": {"model_id": "gemma-4-26b-a4b-it"},
@@ -27,33 +24,10 @@ DEFAULT_MODEL = "Google Gemma 4 (31B-It)"
 
 # Canonical field order for summary table rendering
 CANONICAL_FIELD_ORDER = [
-    "BRAND",
-    "MODEL",
-    "SIZE",
-    "MOULD",
-    "LOAD_IDX",
-    "SPEED",
-    "DOT",
-    "DPC",
-    "DMC",
-    "PSI",
-    "KPA",
-    "LOAD_KG",
-    "LOAD_LBS",
-    "TYPE",
-    "SAFETY",
-    "MARK",
-    "TRAC",
-    "TEMP",
-    "TWEAR",
-    "UTQG",
-    "INDIA",
-    "P_TREAD",
-    "SIDEWALL",
-    "NOISE",
-    "ECE",
-    "ISI"
+    "BRAND", "MODEL", "SIZE", "MOULD", "LOAD_IDX", "SPEED", "DOT", 
+    "DPC", "DMC", "PSI", "KPA", "LOAD_KG", "LOAD_LBS", "TYPE", 
+    "SAFETY", "MARK", "TRAC", "TEMP", "TWEAR", "UTQG", "INDIA", 
+    "P_TREAD", "SIDEWALL", "NOISE", "ECE", "ISI"
 ]
 
-# Backend host/port used by the Streamlit frontend to reach FastAPI.
 BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")

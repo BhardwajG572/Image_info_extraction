@@ -2,7 +2,7 @@
 Tire Inspection Pipeline - Streamlit dashboard.
 
 Phase 1: multi-image upload + thumbnail gallery
-Phase 2: every uploaded image is force-hflipped immediately and shown in
+Phase 2: every uploaded image is STRICTLY force-hflipped immediately and shown in
          a preprocessed gallery - this is what actually gets sent to the LLM
 Phase 3: extraction - the PREPROCESSED (flipped) image is what's sent to
          Gemma, never the raw upload
@@ -15,12 +15,13 @@ import base64
 import concurrent.futures
 import time
 import uuid
+import sys
+from pathlib import Path
 
 import requests
 import streamlit as st
 
-import sys
-from pathlib import Path
+# Ensure the backend module can be found
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from backend.config import AVAILABLE_MODELS, DEFAULT_MODEL, BACKEND_URL, CANONICAL_FIELD_ORDER
@@ -33,7 +34,7 @@ st.set_page_config(page_title="Tire Inspection Pipeline", layout="wide")
 def _init_state():
     defaults = {
         "raw_images": [],          # [{image_id, filename, b64}]
-        "preprocessed_images": [], # [{image_id, filename, b64}] - flipped
+        "preprocessed_images": [], # [{image_id, filename, b64}] - strictly flipped
         "extractions": {},         # image_id -> {parsed, model_used, ...}
         "merge_result": None,
         "preview_target": None,
@@ -65,12 +66,12 @@ def _preview_dialog(images: list[dict], image_id: str):
 
 st.title("🛞 Tire Inspection Pipeline")
 st.caption(
-    "Upload → preprocess (hflip) → extract (Gemma, on the preprocessed "
+    "Upload → strictly preprocess (hflip) → extract (Gemma, on the preprocessed "
     "image) → deterministic merge. No hallucinated summaries."
 )
 
 # --------------------------------------------------------------------------
-# Phase 1: Upload
+# Phase 1: Upload (Strict HFLIP enforced here)
 # --------------------------------------------------------------------------
 st.header("1. Upload Tire Images")
 uploaded_files = st.file_uploader(
@@ -84,14 +85,16 @@ if uploaded_files:
     for f in uploaded_files:
         if f.name in existing_names:
             continue
+        
         b64 = base64.b64encode(f.read()).decode("utf-8")
         image_id = str(uuid.uuid4())[:8]
 
+        # 1. Save Raw Upload
         st.session_state["raw_images"].append(
             {"image_id": image_id, "filename": f.name, "b64": b64}
         )
-        # Preprocess immediately on upload - flip happens here, once,
-        # and this is the exact image that will later go to the LLM.
+        
+        # 2. Strict Unconditional HFLIP
         flipped_b64 = hflip_b64(b64)
         st.session_state["preprocessed_images"].append(
             {"image_id": image_id, "filename": f.name, "b64": flipped_b64}
@@ -117,12 +120,12 @@ else:
 st.divider()
 
 # --------------------------------------------------------------------------
-# Phase 2: Preprocessed gallery (visible before extraction runs)
+# Phase 2: Preprocessed gallery (Strictly Flipped Images)
 # --------------------------------------------------------------------------
-st.header("2. Preprocessed Images (Flipped)")
+st.header("2. Preprocessed Images (Strictly Flipped)")
 
 if st.session_state["preprocessed_images"]:
-    st.caption("This is the exact image that will be sent to the LLM for extraction.")
+    st.caption("These images have been strictly horizontally flipped. This is exactly what goes to the LLM.")
     clicked_pre = render_image_grid(
         st.session_state["preprocessed_images"], key_prefix="pre", columns=4
     )
@@ -134,7 +137,7 @@ else:
 st.divider()
 
 # --------------------------------------------------------------------------
-# Phase 3+4+5: Extraction + merge
+# Phase 3: Extraction (Sending the Flipped Images)
 # --------------------------------------------------------------------------
 st.header("3. Run Extraction")
 
@@ -165,7 +168,7 @@ if st.session_state["preprocessed_images"]:
                 "images": [
                     {
                         "image_id": img["image_id"],
-                        "image_b64": img["b64"],
+                        "image_b64": img["b64"], # STRICTLY flipped b64
                         "model_key": model_key,
                     }
                     for img in batch
@@ -227,6 +230,7 @@ if st.session_state["preprocessed_images"]:
             for iid, e in st.session_state["extractions"].items()
             if e and "parsed" in e
         ]
+        
         if valid_extractions:
             progress.progress(1.0, text="Merging results...")
             try:
@@ -252,7 +256,7 @@ else:
 st.divider()
 
 # --------------------------------------------------------------------------
-# Results grid
+# Phase 4: Results grid
 # --------------------------------------------------------------------------
 st.header("4. Results")
 
@@ -261,39 +265,47 @@ if st.session_state["extractions"]:
     for idx, img in enumerate(st.session_state["preprocessed_images"]):
         extraction = st.session_state["extractions"].get(img["image_id"])
         raw_img = _find_image(st.session_state["raw_images"], img["image_id"])
+        
         with cols[idx % 3]:
             with st.container(border=True):
                 st.markdown(f"**{img['filename']}**")
+                
                 if extraction is None:
                     st.caption("Not yet processed.")
                     continue
                 if "error" in extraction:
-                    st.error(extraction["error"])
+                    st.error(f"Extraction Error: {extraction['error']}")
                     continue
 
                 c1, c2 = st.columns(2)
                 with c1:
                     st.caption("Original")
-                    st.image(f"data:image/png;base64,{raw_img['b64']}", width="stretch")
+                    st.image(f"data:image/png;base64,{raw_img['b64']}", use_container_width=True)
                 with c2:
-                    st.caption("Preprocessed (sent to LLM)")
-                    st.image(f"data:image/png;base64,{img['b64']}", width="stretch")
+                    st.caption("Preprocessed (Flipped)")
+                    st.image(f"data:image/png;base64,{img['b64']}", use_container_width=True)
 
-                st.json(extraction["parsed"], expanded=False)
+                st.json(extraction.get("parsed", {}), expanded=True)
+                
+                parsed = extraction.get("parsed", {})
+                if "extracted_text" in parsed and parsed["extracted_text"]:
+                    st.caption("Extracted Text Lines:")
+                    for line in parsed["extracted_text"]:
+                        st.text(line)
 else:
     st.info("Run extraction above to see results.")
 
 st.divider()
 
 # --------------------------------------------------------------------------
-# Master summary
+# Phase 5: Master summary
 # --------------------------------------------------------------------------
 st.header("5. Deterministic Master Summary")
 
 if st.session_state["merge_result"]:
     result = st.session_state["merge_result"]
 
-    if result["warnings"]:
+    if result.get("warnings"):
         for w in result["warnings"]:
             st.error(w)
     else:
@@ -301,14 +313,20 @@ if st.session_state["merge_result"]:
 
     st.subheader("Master Record")
     rows = []
+    master_rec = result.get("master_record", {})
+    field_rep = result.get("field_report", {})
+    
     for field in CANONICAL_FIELD_ORDER:
-        if field not in result["master_record"]:
+        if field not in master_rec:
             continue
-        status = result["field_report"].get(field, {}).get("status", "not_found")
+            
+        status = field_rep.get(field, {}).get("status", "not_found")
+        value = master_rec[field]
+        
         rows.append(
             {
                 "Field": field,
-                "Value": result["master_record"][field] or "—",
+                "Value": value if value is not None else "—",
                 "Status": status,
             }
         )
