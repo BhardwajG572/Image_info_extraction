@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Express Apprentice Roles Analysis</title>
+    <style>
+        :root {
+            --surface: #ffffff;
+            --on-surface-default: #1b1c1d;
+            --on-surface-de-emphasis: #444746;
+            --primary: #0b57d0;
+            --stroke-default: #dcdfe5;
+            --surface-container: #f0f4f9;
+            --highlight: #d3e3fd;
+        }
+
+        body {
+            font-family: "Google Sans", "Roboto", sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface-default);
+            margin: 0;
+            padding: 24px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--stroke-default);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: var(--surface-container);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th, td {
+            padding: 16px;
+            border-bottom: 1px solid var(--stroke-default);
+            vertical-align: top;
+        }
+
+        th {
+            font-weight: 600;
+            color: var(--on-surface-de-emphasis);
+            white-space: nowrap;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: var(--surface-container);
+        }
+
+        /* Highlight specific rows based on match potential */
+        .high-match {
+            border-left: 4px solid #146c2e; /* Green for high match */
+        }
+        
+        .medium-match {
+            border-left: 4px solid var(--primary); /* Blue for medium match */
+        }
+
+        .low-match {
+            border-left: 4px solid var(--on-surface-de-emphasis); /* Grey for low match */
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .badge.high { background-color: #c4eed0; color: #0f5223; }
+        .badge.medium { background-color: #d3e3fd; color: #041e49; }
+        .badge.low { background-color: #e9ebf0; color: #444746; }
+
+    </style>
+</head>
+<body>
+
+    <h1>American Express Apprentice Roles: Strategic Breakdown</h1>
+    <p style="margin-bottom: 24px; color: var(--on-surface-de-emphasis);">
+        A holistic comparison of the five roles to help you tailor your resume and projects for maximum selection probability before the deadlines (July 30 - August 2).
+    </p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Job ID & Title (Location)</th>
+                    <th>Core Requirements & Focus</th>
+                    <th>Explicit Skills Asked</th>
+                    <th>Projects to Highlight for Max Selection</th>
+                    <th>Your Match Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ROLE 1: GenAI (Highest Match) -->
+                <tr class="high-match">
+                    <td>
+                        <strong>26011638</strong><br>
+                        Apprentice - GenAI & Automation<br>
+                        (Gurugram)
+                    </td>
+                    <td>
+                        Building AI-assisted solutions, workflow automation, experimenting with LLMs for data extraction, breaking down business problems.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Python (pandas, numpy)</li>
+                            <li>SQL (joins, aggregations)</li>
+                            <li>LLMs / Prompt Design</li>
+                            <li>Microsoft Power Platform</li>
+                            <li>APIs / Tool Integration</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <strong>Agentic AI Loan Assistant (LangGraph):</strong><br>
+                        Focus on prompt design, LLM integration, and how it automates a workflow using APIs.<br><br>
+                        <strong>Data Processing (Any ML Project):</strong><br>
+                        Highlight heavy Pandas/NumPy usage.
+                    </td>
+                    <td>
+                        <span class="badge high">Highest Priority</span><br>
+                        Perfect alignment with your current GenAI projects.
+                    </td>
+                </tr>
+
+                <!-- ROLE 2: Net Loss Forecasting (High Match) -->
+                <tr class="high-match">
+                    <td>
+                        <strong>26011560</strong><br>
+                        Apprentice - Net Loss Provision Forecasting<br>
+                        (Gurugram)
+                    </td>
+                    <td>
+                        Forecasting and analytical processes, analyzing large datasets for trends/risks, automation solutions, applying Generative AI to workflows.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Excel</li>
+                            <li>Generative AI Tools (Copilot, ChatGPT)</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <strong>Demand Forecasting (XGBoost):</strong><br>
+                        Highlight building predictive models, optimizing WAPE, and analyzing trends.<br><br>
+                        <strong>Credit Risk Modeling:</strong><br>
+                        Emphasize managing massive datasets (870k records) to find portfolio risks.
+                    </td>
+                    <td>
+                        <span class="badge high">Highest Priority</span><br>
+                        Leverages your predictive modeling and Quantitative Economics background.
+                    </td>
+                </tr>
+
+                <!-- ROLE 3: Data Transformation (High Match) -->
+                <tr class="high-match">
+                    <td>
+                        <strong>26011500</strong><br>
+                        Apprentice - Data Transformation & Automation<br>
+                        (Gurugram)
+                    </td>
+                    <td>
+                        Accounting/external reporting processes, automation (ETL), exploring GenAI tools to enhance documentation and workflows.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>SQL / Python</li>
+                            <li>Big Data querying</li>
+                            <li>Power Platform / BI</li>
+                            <li>GenAI / LLM Assistants</li>
+                            <li>Git/GitHub</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <strong>Any Project with heavy SQL/Python ETL:</strong><br>
+                        Show how you extracted, cleaned, and transformed data before modeling.<br><br>
+                        <strong>GenAI Tooling:</strong><br>
+                        Mention using LLMs to document code or assist in data validation.
+                    </td>
+                    <td>
+                        <span class="badge high">Highest Priority</span><br>
+                        Strong fit for your Python/SQL data wrangling skills.
+                    </td>
+                </tr>
+
+                <!-- ROLE 4: Analytics & Reporting (Medium Match) -->
+                <tr class="medium-match">
+                    <td>
+                        <strong>26011643</strong><br>
+                        Apprentice - Analytics & Reporting<br>
+                        (Gurugram)
+                    </td>
+                    <td>
+                        Execute data models, Exploratory Data Analysis (EDA), visualization, adapting to emerging Gen-AI trends.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Python/PySpark</li>
+                            <li>SQL, Big Query</li>
+                            <li>Tableau / Power BI</li>
+                            <li>Data Mining / Cleansing</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <strong>Data Visualization Challenge (3rd Place):</strong><br>
+                        Highlight this to cover the reporting aspect.<br><br>
+                        <strong>EDA from ML Projects:</strong><br>
+                        Discuss the deep data mining required before applying XGBoost.
+                    </td>
+                    <td>
+                        <span class="badge medium">Strong Alternative</span><br>
+                        Requires spinning up a quick Power BI project to solidify the application.
+                    </td>
+                </tr>
+
+                <!-- ROLE 5: Workforce Planning / Finance Trainee (Lower Match) -->
+                <tr class="low-match">
+                    <td>
+                        <strong>26011201 / 26011403 / 26011344 / 26011396 / 26011719</strong><br>
+                        Various standard Finance/Workforce roles<br>
+                        (Gurugram & Bengaluru)
+                    </td>
+                    <td>
+                        Routine month-close tasks, basic data analysis (spreadsheets), standard financial reports, workforce staffing analysis.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Excel, PowerPoint</li>
+                            <li>Basic Accounting Principles</li>
+                            <li>Data/Spreadsheet Analysis</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <strong>General Data Analysis:</strong><br>
+                        Highlight ability to summarize financial information and identify trends in Excel or basic BI tools.
+                    </td>
+                    <td>
+                        <span class="badge low">Lower Priority</span><br>
+                        These roles underutilize your advanced ML, Python, and GenAI skills.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

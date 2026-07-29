@@ -1,4 +1,3 @@
-# backend/deterministic_merge.py
 from collections import defaultdict
 from typing import Any, Dict, List
 from backend.config import CANONICAL_FIELD_ORDER
@@ -6,7 +5,17 @@ from backend.config import CANONICAL_FIELD_ORDER
 _NON_MERGED_KEYS = ("confidence", "raw_text_seen")
 
 def _normalize(value: Any) -> str:
-    return " ".join(str(value).strip().upper().split())
+    """Grouping key used ONLY to decide whether two candidate values count
+    as "the same" for agreement purposes - never used as the displayed/
+    stored value. Strips ALL non-alphanumeric characters (not just
+    whitespace), matching field_mapper.py's "tight" normalization, so
+    spacing/punctuation-only differences from OCR ("215/60 R 17" vs
+    "215/60R17") are correctly recognized as the same value instead of
+    triggering a false DISCREPANCY. The value actually stored in
+    master_record is always candidates[0]["value"] - the original raw text
+    from the first image, verbatim, never rewritten to this normalized
+    form."""
+    return "".join(ch for ch in str(value).upper() if ch.isalnum())
 
 def merge_extractions(image_extractions: List[Dict]) -> Dict:
     field_values: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
@@ -17,7 +26,7 @@ def merge_extractions(image_extractions: List[Dict]) -> Dict:
         if not isinstance(item, dict): continue
         image_id = item.get("image_id", "unknown")
         parsed = item.get("parsed", {}) or {}
-        
+
         if not isinstance(parsed, dict): continue
         confidences = parsed.get("confidence", {}) or {}
 

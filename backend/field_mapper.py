@@ -11,7 +11,23 @@ never touched/normalized/rewritten in any way. The downstream
 deterministic_merge step is what resolves agreement/discrepancy across
 multiple images from those verbatim values.
 
-Matching happens in four tiers, cheapest/strictest first:
+Matching happens in two stages:
+
+STAGE A - decomposition (tries first): scans a raw line for every place
+ANY field's known variant appears as an exact substring (after stripping
+spacing/punctuation), greedily claiming the LONGEST matches first so a
+more specific/longer pattern wins over a shorter one it contains, then
+recurses into non-overlapping remaining stretches of the line. This is
+what lets one compound line produce MULTIPLE field values - e.g.
+"DOT 1PO KTC305" decomposes into DOT="DOT", DPC="1PO", DMC="KTC305"
+instead of the whole line being forced into a single field. The value
+stored for each match is the corresponding ORIGINAL substring of the raw
+line (exact casing/spacing preserved), never a rewritten/canonical form.
+
+STAGE B - whole-line fallback (only when Stage A finds nothing at all):
+the four-tier single-field classifier below, for lines that don't
+decompose because they're a typo'd or otherwise-noisy single value with no
+exact substring match anywhere (e.g. "AP0LLO"):
   1. loose    - exact match after case/whitespace normalization
   2. tight    - exact match after stripping ALL non-alphanumeric characters
                 (handles any spacing/punctuation pattern, not just the
@@ -22,10 +38,9 @@ Matching happens in four tiers, cheapest/strictest first:
                 text, or vice versa. Needed for compound codes with
                 variable suffixes that no finite variant list can fully
                 enumerate - e.g. a real DOT code often carries a date/week
-                stamp beyond the listed "1P0 KTC305" core
-                ("DOT 1P0 KTC305 0125"). Guarded by a minimum match length
-                and a longest-match-wins rule so short/generic substrings
-                can't hijack unrelated fields.
+                stamp beyond the listed core. Guarded by a minimum match
+                length and a longest-match-wins rule so short/generic
+                substrings can't hijack unrelated fields.
   4. fuzzy    - similarity-ratio match (stdlib difflib) against all
                 variants, only reached when 1-3 all fail. Guarded by a
                 similarity floor and a margin-over-runner-up check so it
@@ -40,6 +55,7 @@ field, the first is kept as the field's value and the rest are kept under
 "_conflicts" for that field, per image.
 """
 import difflib
+import re
 from typing import Any, Dict, List, Optional, Tuple
 
 from backend.field_variants import FIELD_VARIANTS
@@ -59,6 +75,12 @@ FUZZY_MARGIN = 0.05         # best field must beat the runner-up field by this m
 # as a substring inside every other longer string.
 CONTAINS_MIN_LENGTH = 5
 
+# Decomposition-tier tuning. This tier only does EXACT substring matches
+# against the curated variant list (no fuzziness), so short tokens are much
+# safer here than in the fuzzy/contains tiers - but still require at least
+# this many characters to avoid single/double-character junk matches.
+DECOMPOSE_MIN_LENGTH = 3
+
 
 def _tight(text: str) -> str:
     """Aggressive normalization for matching: uppercase, strip everything
@@ -66,6 +88,22 @@ def _tight(text: str) -> str:
     e.g. "215/60 R17" / "215/60R17" / "21560R17" all reduce to the same
     key."""
     return "".join(ch for ch in str(text).upper() if ch.isalnum())
+
+
+def _tight_with_mapping(text: str) -> Tuple[str, List[int]]:
+    """Like _tight(), but also returns index_map where index_map[i] is the
+    index into the ORIGINAL text that tight_string[i] came from. Lets a
+    match found in the tight-normalized string be traced back to the exact
+    original substring (preserving original spacing/punctuation/casing) for
+    use as the stored value."""
+    text = str(text)
+    tight_chars: List[str] = []
+    index_map: List[int] = []
+    for i, ch in enumerate(text):
+        if ch.isalnum():
+            tight_chars.append(ch.upper())
+            index_map.append(i)
+    return "".join(tight_chars), index_map
 
 
 def _loose(text: str) -> str:
@@ -131,7 +169,31 @@ def _build_lookup() -> Tuple[Dict[str, str], Dict[str, str], Dict[str, List[str]
     return loose_index, tight_index, field_tight_variants, conflicts
 
 
+def _build_decompose_order(field_tight_variants: Dict[str, List[str]]) -> List[Tuple[str, str]]:
+    """Flatten {field: [tight_variants]} into a single (field, variant_tight)
+    list sorted longest-variant-first. Decomposition claims matches greedily
+    in this order, so a longer/more specific pattern (e.g. a full compound
+    code) is tried before a shorter one it might contain, and duplicate
+    tight strings across fields are naturally deduplicated by whichever
+    field owns that tight string in field_tight_variants (already resolved
+    by conflict handling in _build_lookup)."""
+    flat: List[Tuple[str, str]] = []
+    seen: set = set()
+    for field, variants in field_tight_variants.items():
+        for variant_tight in variants:
+            if len(variant_tight) < DECOMPOSE_MIN_LENGTH:
+                continue
+            key = (field, variant_tight)
+            if key in seen:
+                continue
+            seen.add(key)
+            flat.append(key)
+    flat.sort(key=lambda ft: len(ft[1]), reverse=True)
+    return flat
+
+
 _LOOSE_INDEX, _TIGHT_INDEX, _FIELD_TIGHT_VARIANTS, FIELD_VARIANT_CONFLICTS = _build_lookup()
+_DECOMPOSE_ORDER = _build_decompose_order(_FIELD_TIGHT_VARIANTS)
 
 if FIELD_VARIANT_CONFLICTS:
     print(
@@ -207,6 +269,77 @@ def _fuzzy_classify(tight_raw: str) -> Optional[str]:
     return None
 
 
+# Real-world tire markings print load index and speed rating fused
+# together with little or no space ("96H", "96 H") - a single decomposition
+# match for the whole token is correct for SPEED but means LOAD_IDX's own
+# short 2-digit token (below DECOMPOSE_MIN_LENGTH, and positionally
+# overlapping with SPEED's match anyway) never gets extracted on its own.
+# This is a narrow, well-defined industry pattern, not a general risk -
+# scoped to only fire on values already classified as SPEED.
+_LOAD_INDEX_SPEED_RE = re.compile(r"^(\d{2,3})\s*([A-Za-z]{1,2})$")
+
+
+def _maybe_split_load_index_speed(field: str, value: str) -> List[Tuple[str, str]]:
+    """If a SPEED match looks like "<load index digits><speed letters>",
+    split it into a LOAD_IDX part and a SPEED part - both taken verbatim
+    from the matched substring, not rewritten or guessed at. Leaves
+    everything else (including a SPEED match that's just the bare letter,
+    e.g. "H") unchanged."""
+    if field == "SPEED":
+        m = _LOAD_INDEX_SPEED_RE.match(value.strip())
+        if m:
+            return [("LOAD_IDX", m.group(1)), ("SPEED", m.group(2))]
+    return [(field, value)]
+
+
+def decompose_line(raw_text: str) -> List[Tuple[str, str]]:
+    """Scan one raw OCR line for every place a known field variant appears
+    as an exact substring, greedily claiming the longest matches first so
+    non-overlapping matches can co-exist - this is what lets one compound
+    line (e.g. "DOT 1PO KTC305") produce multiple field values instead of
+    being forced into a single field.
+
+    Returns a list of (field, original_raw_substring) pairs, in the order
+    they appear in the line. Empty list if nothing decomposes (caller
+    should fall back to classify_text for the whole-line tiers)."""
+    if raw_text is None or not str(raw_text).strip():
+        return []
+
+    tight_line, index_map = _tight_with_mapping(raw_text)
+    if not tight_line:
+        return []
+
+    claimed = [False] * len(tight_line)
+    matches: List[Tuple[int, int, str, str]] = []  # (start, end, field, variant_tight)
+
+    for field, variant_tight in _DECOMPOSE_ORDER:
+        start = 0
+        while True:
+            idx = tight_line.find(variant_tight, start)
+            if idx == -1:
+                break
+            end = idx + len(variant_tight)
+            if not any(claimed[idx:end]):
+                for i in range(idx, end):
+                    claimed[i] = True
+                matches.append((idx, end, field, variant_tight))
+            start = idx + 1  # keep scanning for further non-overlapping occurrences
+
+    if not matches:
+        return []
+
+    matches.sort(key=lambda m: m[0])  # restore original left-to-right line order
+
+    results: List[Tuple[str, str]] = []
+    for start, end, field, _variant_tight in matches:
+        orig_start = index_map[start]
+        orig_end = index_map[end - 1] + 1
+        raw_substring = str(raw_text)[orig_start:orig_end]
+        results.append((field, raw_substring))
+
+    return results
+
+
 def classify_text(raw_text: str) -> Optional[str]:
     """Return the canonical field key this raw OCR string belongs to, or
     None if it doesn't match any known variant for any field (even after
@@ -234,11 +367,17 @@ def map_extraction_to_fields(extracted_text: List[str]) -> Dict[str, Any]:
     string against the known field variants and build a {field: value, ...}
     dict, using the ACTUAL extracted text as the value.
 
+    For each raw line: try decomposition first (may yield multiple field
+    values from one compound line, e.g. "DOT 1PO KTC305" -> DOT/DPC/DMC).
+    If decomposition finds nothing at all for that line, fall back to
+    whole-line classify_text (handles typo'd single-value lines that have
+    no exact substring match anywhere, e.g. "AP0LLO").
+
     Returns a dict with:
       - one key per matched canonical field -> the raw text that matched it
-      - "_unmatched": [raw strings that didn't match any known field]
-      - "_conflicts": {field: [raw strings that matched a field already
-        claimed by an earlier string in this same image]}
+      - "_unmatched": [raw strings/segments that didn't match any known field]
+      - "_conflicts": {field: [values that matched a field already claimed
+        by an earlier match in this same image]}
     "_unmatched" and "_conflicts" are metadata for visibility, not meant to
     be passed into deterministic_merge - see main.py's /merge endpoint.
     """
@@ -246,15 +385,29 @@ def map_extraction_to_fields(extracted_text: List[str]) -> Dict[str, Any]:
     unmatched: List[str] = []
     conflicts: Dict[str, List[str]] = {}
 
+    def _record(field: str, value: str) -> None:
+        if field in parsed:
+            conflicts.setdefault(field, []).append(value)
+        else:
+            parsed[field] = value
+
     for raw in extracted_text or []:
+        if raw is None or not str(raw).strip():
+            continue
+
+        decomposed = decompose_line(raw)
+        if decomposed:
+            for field, value in decomposed:
+                for split_field, split_value in _maybe_split_load_index_speed(field, value):
+                    _record(split_field, split_value)
+            continue
+
         field = classify_text(raw)
         if field is None:
             unmatched.append(raw)
-            continue
-        if field in parsed:
-            conflicts.setdefault(field, []).append(raw)
         else:
-            parsed[field] = raw
+            for split_field, split_value in _maybe_split_load_index_speed(field, raw):
+                _record(split_field, split_value)
 
     if unmatched:
         parsed["_unmatched"] = unmatched
