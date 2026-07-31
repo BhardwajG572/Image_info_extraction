@@ -14,14 +14,24 @@ Endpoints:
 Run with:  uv run uvicorn backend.main:app --reload --port 8000
 """
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from backend.config import AVAILABLE_MODELS, DEFAULT_MODEL
 from backend.services import extract_from_image, ExtractionError
 from backend.field_mapper import map_extraction_to_fields
 from backend.deterministic_merge import merge_extractions
+from backend.image_pipeline import hflip_b64
 
 app = FastAPI(title="Tire Inspection Pipeline API", version="1.0.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ExtractRequest(BaseModel):
     image_id: str
@@ -111,3 +121,29 @@ def extract_batch(req: ExtractBatchRequest):
         except ExtractionError as exc:
             results.append({"image_id": im.image_id, "error": str(exc)})
     return {"results": results}
+
+class PreprocessRequestItem(BaseModel):
+    image_id: str
+    image_b64: str
+    side: str
+
+class PreprocessRequest(BaseModel):
+    images: list[PreprocessRequestItem]
+
+@app.post("/preprocess")
+def preprocess(req: PreprocessRequest):
+    results = []
+    for im in req.images:
+        try:
+            processed_b64 = hflip_b64(im.image_b64)
+            results.append({
+                "image_id": im.image_id,
+                "image_b64": processed_b64,
+                "side": im.side
+            })
+        except Exception as e:
+            results.append({
+                "image_id": im.image_id,
+                "error": str(e)
+            })
+    return {"results": results}
