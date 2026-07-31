@@ -80,7 +80,8 @@ def merge(req: MergeRequest):
         if conflicts:
             conflicts_by_image[image_id] = conflicts
 
-        mapped_extractions.append({"image_id": image_id, "parsed": field_dict})
+        side = item.get("side", "Unknown")
+        mapped_extractions.append({"image_id": image_id, "side": side, "parsed": field_dict})
 
     try:
         result = merge_extractions(mapped_extractions)

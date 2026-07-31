@@ -268,9 +268,9 @@ if st.session_state["extractions"]:
 st.divider()
 
 # --------------------------------------------------------------------------
-# Phase 5: Master Specification Compliance Table
+# Phase 5: Master Table
 # --------------------------------------------------------------------------
-st.header("5. Specification Compliance Table")
+st.header("5. Master Table")
 
 if st.session_state["merge_result"]:
     report = st.session_state["merge_result"].get("compliance_report", [])
@@ -279,12 +279,18 @@ if st.session_state["merge_result"]:
         # Convert to Pandas DataFrame for a clean deterministic table render
         df = pd.DataFrame(report)
         
-        # Style the OK/NF statuses (Green for OK, Red for NF)
+        # Style the OK/NF/Mismatch statuses
         def style_status(val):
             if val == 'OK':
                 color = '#2ecc71' # Green
             elif val == 'NF':
                 color = '#e74c3c' # Red
+            elif val == 'Mismatch':
+                color = '#f39c12' # Orange
+            elif val == 'Wrong Side':
+                color = '#9b59b6' # Purple
+            elif val == 'Discrepancy':
+                color = '#e67e22' # Dark Orange
             else:
                 color = 'inherit'
             return f'color: {color}; font-weight: bold;'

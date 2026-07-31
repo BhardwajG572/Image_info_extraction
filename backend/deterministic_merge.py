@@ -2,6 +2,7 @@
 from collections import defaultdict
 from typing import Any, Dict, List, Optional
 from backend.config import CANONICAL_FIELD_ORDER, SKU_SPECIFICATIONS, SIDE_SPECIFIC_RULES
+from backend.field_variants import FIELD_VARIANTS
 
 _NON_MERGED_KEYS = ("confidence", "raw_text_seen")
 
@@ -50,6 +51,30 @@ def merge_extractions(image_extractions: List[Dict]) -> Dict:
 
     for field in ordered_fields:
         spec_val = SKU_SPECIFICATIONS.get(field)
+        
+        if field == "UTQG":
+            top_trac = top_values.get("TRAC")
+            top_temp = top_values.get("TEMP")
+            if top_trac and top_temp:
+                top_values[field] = ["UTQG"]
+            elif top_trac:
+                top_values[field] = ["UTQG A"]
+            elif top_temp:
+                top_values[field] = ["UTQG B"]
+            else:
+                top_values[field] = ["UTQG A/B"]
+
+            bot_trac = bottom_values.get("TRAC")
+            bot_temp = bottom_values.get("TEMP")
+            if bot_trac and bot_temp:
+                bottom_values[field] = ["UTQG"]
+            elif bot_trac:
+                bottom_values[field] = ["UTQG A"]
+            elif bot_temp:
+                bottom_values[field] = ["UTQG B"]
+            else:
+                bottom_values[field] = ["UTQG A/B"]
+                
         top_agreed = _get_agreed_value(top_values.get(field, []))
         bot_agreed = _get_agreed_value(bottom_values.get(field, []))
         
@@ -60,33 +85,48 @@ def merge_extractions(image_extractions: List[Dict]) -> Dict:
         top_tight = _normalize(top_agreed)
         bot_tight = _normalize(bot_agreed)
         
+        # Determine all acceptable normalized variants for this field
+        valid_variants = [_normalize(v) for v in FIELD_VARIANTS.get("params", {}).get(field, [])]
+        if spec_tight:
+            valid_variants.append(spec_tight)
+        
         # Determine rules for this parameter
         required_side = SIDE_SPECIFIC_RULES.get(field, "Top & Bottom")
         
         # --- Evaluate TOP Status ---
         status_top = "NF"
-        if top_agreed:
-            if required_side in ["Top", "Top & Bottom"]:
-                if spec_val and top_tight == spec_tight:
-                    status_top = "OK"
-                elif not spec_val: # If no spec was defined but we found it, mark OK
-                    status_top = "OK"
+        if top_values.get(field):
+            if top_agreed:
+                if required_side in ["Top", "Top & Bottom"]:
+                    if spec_val and top_tight in valid_variants:
+                        status_top = "OK"
+                    elif spec_val and top_tight not in valid_variants:
+                        status_top = "Mismatch"
+                    elif not spec_val: # If no spec was defined but we found it, mark OK
+                        status_top = "OK"
+                else:
+                    status_top = "Wrong Side" # Found on wrong side
             else:
-                status_top = "NF" # Found on wrong side
+                status_top = "Discrepancy"
                 
         # --- Evaluate BOTTOM Status ---
         status_bottom = "NF"
-        if bot_agreed:
-            if required_side in ["Bottom", "Top & Bottom"]:
-                if spec_val and bot_tight == spec_tight:
-                    status_bottom = "OK"
-                elif not spec_val:
-                    status_bottom = "OK"
+        if bottom_values.get(field):
+            if bot_agreed:
+                if required_side in ["Bottom", "Top & Bottom"]:
+                    if spec_val and bot_tight in valid_variants:
+                        status_bottom = "OK"
+                    elif spec_val and bot_tight not in valid_variants:
+                        status_bottom = "Mismatch"
+                    elif not spec_val:
+                        status_bottom = "OK"
+                else:
+                    status_bottom = "Wrong Side" # Found on wrong side
             else:
-                status_bottom = "NF" # Found on wrong side
+                status_bottom = "Discrepancy"
 
-        # Handle explicit empty specs (e.g., UTQG should be empty)
-        if spec_val == "":
+        # Handle explicit empty specs
+        if spec_val == "" and field != "UTQG":
             if top_agreed: status_top = "NF"
             if bot_agreed: status_bottom = "NF"
 
