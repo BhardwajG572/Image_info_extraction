@@ -13,11 +13,12 @@ Endpoints:
 
 Run with:  uv run uvicorn backend.main:app --reload --port 8000
 """
+import json
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from backend.config import AVAILABLE_MODELS, DEFAULT_MODEL
+from backend.config import AVAILABLE_MODELS, DEFAULT_MODEL, CANONICAL_FIELD_ORDER, SKU_SPECIFICATIONS
 from backend.services import extract_from_image, ExtractionError
 from backend.field_mapper import map_extraction_to_fields
 from backend.deterministic_merge import merge_extractions
@@ -39,8 +40,11 @@ class ExtractRequest(BaseModel):
     model_key: str = DEFAULT_MODEL
     temperature: float = 0.1
 
+from typing import Optional
+
 class MergeRequest(BaseModel):
     extractions: list[dict]  # [{"image_id": ..., "parsed": {"extracted_text": [...]}}, ...]
+    sku_specifications: Optional[dict] = None
 
 @app.get("/health")
 def health():
@@ -51,6 +55,16 @@ def list_models():
     return {
         "default": DEFAULT_MODEL,
         "models": {k: {"model_id": v["model_id"]} for k, v in AVAILABLE_MODELS.items()},
+    }
+
+@app.get("/fields")
+def list_fields():
+    return {
+        "canonical_fields": CANONICAL_FIELD_ORDER,
+        "default_specs": SKU_SPECIFICATIONS,
+        "available_skus": {
+            "APOLLO APTERRA CROSS 215/60 R17": SKU_SPECIFICATIONS
+        }
     }
 
 @app.post("/extract")
@@ -69,6 +83,13 @@ def extract(req: ExtractRequest):
 def merge(req: MergeRequest):
     if not req.extractions:
         raise HTTPException(status_code=400, detail="No extractions provided to merge.")
+
+    try:
+        with open("all_extractions.json", "w", encoding="utf-8") as f:
+            json.dump(req.extractions, f, indent=4)
+        print("--- Saved all extractions to all_extractions.json ---")
+    except Exception as e:
+        print(f"Failed to save extractions to JSON: {e}")
 
     mapped_extractions = []
     unmatched_by_image = {}
@@ -94,7 +115,7 @@ def merge(req: MergeRequest):
         mapped_extractions.append({"image_id": image_id, "side": side, "parsed": field_dict})
 
     try:
-        result = merge_extractions(mapped_extractions)
+        result = merge_extractions(mapped_extractions, sku_specifications=req.sku_specifications)
     except Exception as exc:
         raise HTTPException(status_code=400, detail=f"Merge failed: {exc}") from exc
 
@@ -117,6 +138,8 @@ def extract_batch(req: ExtractBatchRequest):
                 image_b64=im.image_b64,
                 temperature=im.temperature,
             )
+            print(f"\n--- Extracted Data for Image {im.image_id} ---")
+            print(json.dumps(res, indent=2))
             results.append({"image_id": im.image_id, **res})
         except ExtractionError as exc:
             results.append({"image_id": im.image_id, "error": str(exc)})

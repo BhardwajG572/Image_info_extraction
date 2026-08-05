@@ -5,9 +5,10 @@ import ZoomPanViewer from './components/ZoomPanViewer';
 import ExtractionResults from './components/ExtractionResults';
 import MasterTable from './components/MasterTable';
 import Statistics from './components/Statistics';
+import SkuUploader from './components/SkuUploader';
 import { Trash2, Cpu } from 'lucide-react';
 
-const BACKEND_URL = 'http://127.0.0.1:8001';
+const BACKEND_URL = 'http://127.0.0.1:8000';
 
 function App() {
   const [models, setModels] = useState([]);
@@ -21,6 +22,8 @@ function App() {
   
   const [extractions, setExtractions] = useState({});
   const [mergeResult, setMergeResult] = useState(null);
+  
+  const [customSkuSpec, setCustomSkuSpec] = useState(null);
   
   const [previewTarget, setPreviewTarget] = useState(null); // { image_b64, title }
   
@@ -182,7 +185,10 @@ function App() {
         const res = await fetch(`${BACKEND_URL}/merge`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ extractions: validExtractions })
+          body: JSON.stringify({ 
+            extractions: validExtractions,
+            sku_specifications: customSkuSpec
+          })
         });
         const data = await res.json();
         setMergeResult(data);
@@ -201,9 +207,13 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <h1>🛞 Dual-Side Tire Compliance Pipeline</h1>
-        <p>Dual Upload (Top & Bottom) → strictly preprocess (hflip) → extract (Gemma) → cross-reference with Ground Truth SKU Specs.</p>
+        <h1>🛞 Vulcan Inspect</h1>
+        <p>Every marking read, cross-checked, and verified — nothing guessed, nothing hidden.</p>
       </div>
+
+      <section>
+        <SkuUploader customSkuSpec={customSkuSpec} setCustomSkuSpec={setCustomSkuSpec} backendUrl={BACKEND_URL} />
+      </section>
 
       <section>
         <h2>1. Upload Tire Images</h2>
@@ -295,26 +305,8 @@ function App() {
         )}
       </section>
 
-      <div className="divider" />
-
       <section>
-        <h2>4. Raw Extractions</h2>
-        {Object.keys(extractions).length > 0 ? (
-          <>
-            <ExtractionResults side="Top" rawImages={rawTopImages} preprocessedImages={preprocessedTopImages} extractions={extractions} />
-            <ExtractionResults side="Bottom" rawImages={rawBottomImages} preprocessedImages={preprocessedBottomImages} extractions={extractions} />
-          </>
-        ) : (
-          <div className="card" style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-            No extractions yet. Run extraction above.
-          </div>
-        )}
-      </section>
-
-      <div className="divider" />
-
-      <section>
-        <h2>5. Master Table</h2>
+        <h2>4. Master Table</h2>
         {mergeResult && mergeResult.compliance_report ? (
            <>
              <Statistics report={mergeResult.compliance_report} />

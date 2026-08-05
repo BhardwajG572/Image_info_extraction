@@ -22,10 +22,11 @@ def _get_agreed_value(candidates: List[str]) -> Optional[str]:
         return candidates[0]  # Return the first verbatim string
     return None  # Discrepancy between images on the same side
 
-def merge_extractions(image_extractions: List[Dict]) -> Dict:
+def merge_extractions(image_extractions: List[Dict], sku_specifications: Optional[Dict] = None) -> Dict:
+    active_sku_specs = sku_specifications if sku_specifications is not None else SKU_SPECIFICATIONS
     top_values: Dict[str, List[str]] = defaultdict(list)
     bottom_values: Dict[str, List[str]] = defaultdict(list)
-    all_fields = set(CANONICAL_FIELD_ORDER) | set(SKU_SPECIFICATIONS.keys())
+    all_fields = set(CANONICAL_FIELD_ORDER) | set(active_sku_specs.keys())
 
     for item in image_extractions or []:
         if not isinstance(item, dict): continue
@@ -50,7 +51,7 @@ def merge_extractions(image_extractions: List[Dict]) -> Dict:
     ordered_fields += sorted(f for f in all_fields if f not in CANONICAL_FIELD_ORDER)
 
     for field in ordered_fields:
-        spec_val = SKU_SPECIFICATIONS.get(field)
+        spec_val = active_sku_specs.get(field)
         
         if field == "UTQG":
             top_trac = top_values.get("TRAC")
@@ -81,14 +82,18 @@ def merge_extractions(image_extractions: List[Dict]) -> Dict:
         if not spec_val and not top_agreed and not bot_agreed:
             continue  # Skip empty fields entirely
             
-        spec_tight = _normalize(spec_val)
         top_tight = _normalize(top_agreed)
         bot_tight = _normalize(bot_agreed)
         
         # Determine all acceptable normalized variants for this field
         valid_variants = [_normalize(v) for v in FIELD_VARIANTS.get("params", {}).get(field, [])]
-        if spec_tight:
-            valid_variants.append(spec_tight)
+        
+        # spec_val from the frontend can be a comma-separated list of acceptable variants
+        if spec_val:
+            for variant in str(spec_val).split(','):
+                variant_tight = _normalize(variant)
+                if variant_tight:
+                    valid_variants.append(variant_tight)
         
         # Determine rules for this parameter
         required_side = SIDE_SPECIFIC_RULES.get(field, "Top & Bottom")

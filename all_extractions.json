@@ -1,0 +1,80 @@
+[
+    {
+        "image_id": "b396emhi",
+        "side": "Top",
+        "parsed": {
+            "extracted_text": [
+                "TERRA CROSS",
+                "215/60 R 17 96H",
+                "MAX. LOAD 710 kg (1565 lbs)",
+                "MAX. PRESS. 350 kPa (51 psi)",
+                "M+S"
+            ]
+        }
+    },
+    {
+        "image_id": "kuy4an86",
+        "side": "Top",
+        "parsed": {
+            "extracted_text": [
+                "apollo",
+                "RADIAL TUBELESS",
+                "B8524-32",
+                "MADE IN INDIA",
+                "TEMPERATURE A"
+            ]
+        }
+    },
+    {
+        "image_id": "a77tv1n9",
+        "side": "Top",
+        "parsed": {
+            "extracted_text": [
+                "215/60R17",
+                "DOT 1PO KTC305",
+                "0211093 S2WR2 02119426",
+                "E4",
+                "EX1189-17\" #5"
+            ]
+        }
+    },
+    {
+        "image_id": "rv8fvkk3",
+        "side": "Bottom",
+        "parsed": {
+            "extracted_text": [
+                "apollo",
+                "RADIAL TUBELESS",
+                "B8524-32",
+                "MADE IN INDIA",
+                "TEMPERATURE A"
+            ]
+        }
+    },
+    {
+        "image_id": "jazeefiv",
+        "side": "Bottom",
+        "parsed": {
+            "extracted_text": [
+                "215/60R17",
+                "DOT 1PO KTC305",
+                "0211093 S2WR2 02119426",
+                "E4",
+                "EX1189-17\" #5"
+            ]
+        }
+    },
+    {
+        "image_id": "p9kmkxtj",
+        "side": "Bottom",
+        "parsed": {
+            "extracted_text": [
+                "TREAD 1 POLYESTER 2 STEEL 1 NYLON",
+                "PLIES SIDEWALL 2 POLYESTER",
+                "TRACTION A",
+                "0211093 S2WR2",
+                "02119428"
+            ]
+        }
+    }
+]
