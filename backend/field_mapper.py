@@ -280,15 +280,15 @@ _LOAD_INDEX_SPEED_RE = re.compile(r"^(\d{2,3})\s*([A-Za-z]{1,2})$")
 
 
 def _maybe_split_load_index_speed(field: str, value: str) -> List[Tuple[str, str]]:
-    """If a SPEED match looks like "<load index digits><speed letters>",
-    split it into a LOAD_IDX part and a SPEED part - both taken verbatim
+    """If a Speed index match looks like "<load index digits><speed letters>",
+    split it into a Load index part and a Speed index part - both taken verbatim
     from the matched substring, not rewritten or guessed at. Leaves
-    everything else (including a SPEED match that's just the bare letter,
+    everything else (including a Speed index match that's just the bare letter,
     e.g. "H") unchanged."""
-    if field == "SPEED":
+    if field == "Speed index":
         m = _LOAD_INDEX_SPEED_RE.match(value.strip())
         if m:
-            return [("LOAD_IDX", m.group(1)), ("SPEED", m.group(2))]
+            return [("Load index", m.group(1)), ("Speed index", m.group(2))]
     return [(field, value)]
 
 
@@ -362,10 +362,13 @@ def classify_text(raw_text: str) -> Optional[str]:
     return _fuzzy_classify(tk)
 
 
-def map_extraction_to_fields(extracted_text: List[str]) -> Dict[str, Any]:
+def map_extraction_to_fields(extracted_text: List[str], sku_specifications: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """Given one image's raw extraction (list of OCR strings), classify each
     string against the known field variants and build a {field: value, ...}
     dict, using the ACTUAL extracted text as the value.
+
+    If `sku_specifications` is provided, fields defined there will be added
+    to the lookup dynamically so custom parameters can be mapped.
 
     For each raw line: try decomposition first (may yield multiple field
     values from one compound line, e.g. "DOT 1PO KTC305" -> DOT/DPC/DMC).
@@ -391,18 +394,48 @@ def map_extraction_to_fields(extracted_text: List[str]) -> Dict[str, Any]:
         else:
             parsed[field] = value
 
+    def classify_with_dynamic(raw_text: str) -> Optional[str]:
+        if not raw_text:
+            return None
+            
+        tk_raw = _tight(raw_text)
+        lk_raw = _loose(raw_text)
+        
+        # Check dynamic specs first
+        if sku_specifications:
+            for d_field, spec_val in sku_specifications.items():
+                if not spec_val: continue
+                variants = [spec_val]
+                if isinstance(spec_val, str) and "," in spec_val:
+                    variants = [v.strip() for v in spec_val.split(",")]
+                    
+                for v in variants:
+                    if not v: continue
+                    tk_v = _tight(v)
+                    lk_v = _loose(v)
+                    if tk_raw == tk_v or lk_raw == lk_v:
+                        return d_field
+                    if len(tk_v) >= CONTAINS_MIN_LENGTH and (tk_v in tk_raw or (len(tk_raw) >= CONTAINS_MIN_LENGTH and tk_raw in tk_v)):
+                        return d_field
+                    if len(tk_v) >= FUZZY_MIN_LENGTH and len(tk_raw) >= FUZZY_MIN_LENGTH:
+                        ratio = difflib.SequenceMatcher(None, tk_raw, tk_v).ratio()
+                        if ratio >= FUZZY_SCORE_FLOOR:
+                            return d_field
+        
+        return classify_text(raw_text)
+
     for raw in extracted_text or []:
         if raw is None or not str(raw).strip():
             continue
 
         decomposed = decompose_line(raw)
         if decomposed:
-            for field, value in decomposed:
-                for split_field, split_value in _maybe_split_load_index_speed(field, value):
+            for d_field, value in decomposed:
+                for split_field, split_value in _maybe_split_load_index_speed(d_field, value):
                     _record(split_field, split_value)
             continue
 
-        field = classify_text(raw)
+        field = classify_with_dynamic(raw)
         if field is None:
             unmatched.append(raw)
         else:

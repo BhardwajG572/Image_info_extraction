@@ -533,3 +533,53 @@ tr:hover td {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* RC Check Card Table Styles */
+.rc-container {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.rc-header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-bold);
+  text-transform: uppercase;
+}
+
+.rc-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.rc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.rc-table th, .rc-table td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.rc-table th {
+  background: var(--surface-hover);
+  font-weight: 600;
+  color: var(--text-bold);
+  text-transform: uppercase;
+}
+
+.rc-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+

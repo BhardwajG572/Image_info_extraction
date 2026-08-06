@@ -53,9 +53,9 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
     for field in ordered_fields:
         spec_val = active_sku_specs.get(field)
         
-        if field == "UTQG":
-            top_trac = top_values.get("TRAC")
-            top_temp = top_values.get("TEMP")
+        if field == "Utqg Marking":
+            top_trac = top_values.get("Traction")
+            top_temp = top_values.get("Temperature")
             if top_trac and top_temp:
                 top_values[field] = ["UTQG"]
             elif top_trac:
@@ -65,8 +65,8 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
             else:
                 top_values[field] = ["UTQG A/B"]
 
-            bot_trac = bottom_values.get("TRAC")
-            bot_temp = bottom_values.get("TEMP")
+            bot_trac = bottom_values.get("Traction")
+            bot_temp = bottom_values.get("Temperature")
             if bot_trac and bot_temp:
                 bottom_values[field] = ["UTQG"]
             elif bot_trac:
@@ -111,7 +111,7 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
                 status_bottom = "OK"
 
         # Handle explicit empty specs
-        if spec_val == "" and field != "UTQG":
+        if spec_val == "" and field != "Utqg Marking":
             if top_agreed: status_top = "NF"
             if bot_agreed: status_bottom = "NF"
 

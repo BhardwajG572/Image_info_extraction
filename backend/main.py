@@ -116,7 +116,7 @@ def merge(req: MergeRequest):
         raw_parsed = item.get("parsed", {}) or {}
         extracted_text = raw_parsed.get("extracted_text", []) or []
 
-        field_dict = map_extraction_to_fields(extracted_text)
+        field_dict = map_extraction_to_fields(extracted_text, sku_specifications=req.sku_specifications)
 
         # Pull the visibility metadata out before handing fields to the
         # merge step, so it doesn't get treated as a mergeable field itself.
