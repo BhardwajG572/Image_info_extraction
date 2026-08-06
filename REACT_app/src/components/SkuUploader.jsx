@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Settings, Save, RefreshCw, Box, ChevronDown, ChevronUp } from 'lucide-react';
 
-export default function SkuUploader({ customSkuSpec, setCustomSkuSpec, backendUrl }) {
+export default function SkuUploader({ customSkuSpec, setCustomSkuSpec, backendUrl, onSkuNameChange }) {
   const [fields, setFields] = useState([]);
   const [defaultSpecs, setDefaultSpecs] = useState({});
   const [availableSkus, setAvailableSkus] = useState({});
@@ -23,6 +23,7 @@ export default function SkuUploader({ customSkuSpec, setCustomSkuSpec, backendUr
         const skuNames = Object.keys(skus);
         const initialSku = skuNames.length > 0 ? skuNames[0] : 'Dynamic / Custom';
         setSelectedSku(initialSku);
+        if (onSkuNameChange) onSkuNameChange(initialSku);
 
         const initialSpecs = skus[initialSku] || data.default_specs || {};
         // Initialize form with defaults if custom specs haven't been set yet
@@ -42,6 +43,7 @@ export default function SkuUploader({ customSkuSpec, setCustomSkuSpec, backendUr
   const handleSkuChange = (e) => {
     const skuName = e.target.value;
     setSelectedSku(skuName);
+    if (onSkuNameChange) onSkuNameChange(skuName);
     
     if (skuName !== 'Dynamic / Custom' && availableSkus[skuName]) {
       setFormData(availableSkus[skuName]);

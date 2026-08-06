@@ -1,11 +1,11 @@
 [
     {
-        "image_id": "b396emhi",
+        "image_id": "61fiv45w",
         "side": "Top",
         "parsed": {
             "extracted_text": [
                 "TERRA CROSS",
-                "215/60 R 17 96H",
+                "215/60 R 17 96 H",
                 "MAX. LOAD 710 kg (1565 lbs)",
                 "MAX. PRESS. 350 kPa (51 psi)",
                 "M+S"
@@ -13,7 +13,7 @@
         }
     },
     {
-        "image_id": "kuy4an86",
+        "image_id": "uohj3ss3",
         "side": "Top",
         "parsed": {
             "extracted_text": [
@@ -26,7 +26,7 @@
         }
     },
     {
-        "image_id": "a77tv1n9",
+        "image_id": "r7nrf6k3",
         "side": "Top",
         "parsed": {
             "extracted_text": [
@@ -39,7 +39,7 @@
         }
     },
     {
-        "image_id": "rv8fvkk3",
+        "image_id": "70xtb3bf",
         "side": "Bottom",
         "parsed": {
             "extracted_text": [
@@ -52,7 +52,7 @@
         }
     },
     {
-        "image_id": "jazeefiv",
+        "image_id": "tbzzmwgs",
         "side": "Bottom",
         "parsed": {
             "extracted_text": [
@@ -65,7 +65,7 @@
         }
     },
     {
-        "image_id": "p9kmkxtj",
+        "image_id": "lg2h5wbd",
         "side": "Bottom",
         "parsed": {
             "extracted_text": [

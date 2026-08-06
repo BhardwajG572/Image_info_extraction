@@ -7,12 +7,12 @@ export default function ImageGrid({ images, onPreview }) {
   return (
     <div style={{ 
       display: 'grid', 
-      gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', 
-      gap: '1rem', 
-      marginTop: '1rem' 
+      gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', 
+      gap: '0.5rem', 
+      marginTop: '0.5rem' 
     }}>
       {images.map(img => (
-        <div key={img.image_id} className="image-thumbnail" style={{ height: '140px' }}>
+        <div key={img.image_id} className="image-thumbnail" style={{ height: '80px' }}>
           <img 
             src={`data:image/png;base64,${img.image_b64 || img.b64}`} 
             alt={img.filename} 

@@ -14,6 +14,9 @@ Endpoints:
 Run with:  uv run uvicorn backend.main:app --reload --port 8000
 """
 import json
+import os
+import uuid
+from datetime import datetime
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -45,6 +48,7 @@ from typing import Optional
 class MergeRequest(BaseModel):
     extractions: list[dict]  # [{"image_id": ..., "parsed": {"extracted_text": [...]}}, ...]
     sku_specifications: Optional[dict] = None
+    sku_name: Optional[str] = None
 
 @app.get("/health")
 def health():
@@ -66,6 +70,18 @@ def list_fields():
             "APOLLO APTERRA CROSS 215/60 R17": SKU_SPECIFICATIONS
         }
     }
+
+@app.get("/history")
+def get_history():
+    if not os.path.exists("history.json"):
+        return {"history": []}
+    try:
+        with open("history.json", "r", encoding="utf-8") as f:
+            history = json.load(f)
+        return {"history": history}
+    except Exception as e:
+        print(f"Failed to read history: {e}")
+        return {"history": []}
 
 @app.post("/extract")
 def extract(req: ExtractRequest):
@@ -123,6 +139,33 @@ def merge(req: MergeRequest):
     # result, without polluting master_record/field_report with it.
     result["unmatched_text_by_image"] = unmatched_by_image
     result["field_conflicts_by_image"] = conflicts_by_image
+
+    # Save to history.json
+    try:
+        history_entry = {
+            "id": str(uuid.uuid4()),
+            "timestamp": datetime.now().isoformat(),
+            "sku_specifications": req.sku_specifications,
+            "sku_name": req.sku_name,
+            "result": result
+        }
+        
+        history = []
+        if os.path.exists("history.json"):
+            with open("history.json", "r", encoding="utf-8") as f:
+                try:
+                    history = json.load(f)
+                except json.JSONDecodeError:
+                    pass
+        
+        history.insert(0, history_entry) # Put newest first
+        
+        with open("history.json", "w", encoding="utf-8") as f:
+            json.dump(history, f, indent=4)
+        print("--- Saved merge result to history.json ---")
+    except Exception as e:
+        print(f"Failed to append to history.json: {e}")
+
     return result
 
 class ExtractBatchRequest(BaseModel):

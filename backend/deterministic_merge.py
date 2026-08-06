@@ -100,35 +100,15 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
         
         # --- Evaluate TOP Status ---
         status_top = "NF"
-        if top_values.get(field):
-            if top_agreed:
-                if required_side in ["Top", "Top & Bottom"]:
-                    if spec_val and top_tight in valid_variants:
-                        status_top = "OK"
-                    elif spec_val and top_tight not in valid_variants:
-                        status_top = "Mismatch"
-                    elif not spec_val: # If no spec was defined but we found it, mark OK
-                        status_top = "OK"
-                else:
-                    status_top = "Wrong Side" # Found on wrong side
-            else:
-                status_top = "Discrepancy"
+        if top_values.get(field) and top_agreed and required_side in ["Top", "Top & Bottom"]:
+            if not spec_val or (spec_val and top_tight in valid_variants):
+                status_top = "OK"
                 
         # --- Evaluate BOTTOM Status ---
         status_bottom = "NF"
-        if bottom_values.get(field):
-            if bot_agreed:
-                if required_side in ["Bottom", "Top & Bottom"]:
-                    if spec_val and bot_tight in valid_variants:
-                        status_bottom = "OK"
-                    elif spec_val and bot_tight not in valid_variants:
-                        status_bottom = "Mismatch"
-                    elif not spec_val:
-                        status_bottom = "OK"
-                else:
-                    status_bottom = "Wrong Side" # Found on wrong side
-            else:
-                status_bottom = "Discrepancy"
+        if bottom_values.get(field) and bot_agreed and required_side in ["Bottom", "Top & Bottom"]:
+            if not spec_val or (spec_val and bot_tight in valid_variants):
+                status_bottom = "OK"
 
         # Handle explicit empty specs
         if spec_val == "" and field != "UTQG":

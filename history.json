@@ -1,0 +1,1905 @@
+[
+    {
+        "id": "63b4a431-ed0d-4ec0-a68e-3f054be70ff0",
+        "timestamp": "2026-08-06T11:14:57.805621",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "61fiv45w",
+                "uohj3ss3",
+                "r7nrf6k3",
+                "70xtb3bf",
+                "tbzzmwgs",
+                "lg2h5wbd"
+            ],
+            "unmatched_text_by_image": {
+                "r7nrf6k3": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "tbzzmwgs": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "73f4c34b-0ea4-42f4-9c8a-a80efedae9b9",
+        "timestamp": "2026-08-05T16:41:24.019056",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "fy4m5dsa",
+                "leixb8ir",
+                "bzh7z8om",
+                "skjkgsmv",
+                "u14pencq",
+                "5bko0fn5"
+            ],
+            "unmatched_text_by_image": {
+                "bzh7z8om": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "u14pencq": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "6469c699-e492-431b-99a0-9568e04299b6",
+        "timestamp": "2026-08-05T12:46:32.201817",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "nmuy17aq",
+                "n19r6r6d",
+                "nwczf8q6",
+                "489stqi5",
+                "g9vvvepe",
+                "8yjb3p59"
+            ],
+            "unmatched_text_by_image": {
+                "nwczf8q6": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "g9vvvepe": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "0e36a00e-0813-4d00-8de7-282f9085a828",
+        "timestamp": "2026-08-05T12:43:59.865884",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "Discrepancy"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "kq4t0qiq",
+                "tdpzt1wt",
+                "3pzscerf",
+                "t1vo9j5z",
+                "axislm7d",
+                "4r2dzgcx"
+            ],
+            "unmatched_text_by_image": {
+                "3pzscerf": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "axislm7d": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "3eee981b-860e-4cb6-a52f-350b081fc731",
+        "timestamp": "2026-08-05T11:17:12.922618",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "Discrepancy"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "kq4t0qiq",
+                "tdpzt1wt",
+                "3pzscerf",
+                "t1vo9j5z",
+                "axislm7d",
+                "4r2dzgcx"
+            ],
+            "unmatched_text_by_image": {
+                "3pzscerf": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "axislm7d": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "b8cf4d23-530d-44dc-b085-7ee596d46c99",
+        "timestamp": "2026-08-05T11:08:42.802931",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "Discrepancy"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "caozr0z1",
+                "c4k9qlzp",
+                "q1xmfgin",
+                "edrfkbj2",
+                "stjqsb93",
+                "7gl0vsqo"
+            ],
+            "unmatched_text_by_image": {
+                "q1xmfgin": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "stjqsb93": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "f888af69-4e67-4549-a0c2-b32a7abfde1f",
+        "timestamp": "2026-08-05T11:05:19.285088",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "sku_name": "APOLLO APTERRA CROSS 215/60 R17",
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "Discrepancy"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "t9z40cq4",
+                "a4o148ak",
+                "3ybg1gcx",
+                "7qnpiedy",
+                "5m1g7u5i",
+                "r1lv8tkk"
+            ],
+            "unmatched_text_by_image": {
+                "3ybg1gcx": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "5m1g7u5i": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    },
+    {
+        "id": "0cc80c51-de5d-476d-aa01-6904d764eaa1",
+        "timestamp": "2026-08-05T10:53:44.012147",
+        "sku_specifications": {
+            "BRAND": "APOLLO",
+            "MODEL": "APTERRA CROSS",
+            "SIZE": "215/60 R17",
+            "MOULD": "B8524",
+            "LOAD_IDX": "96",
+            "SPEED": "H",
+            "DOT": "DOT",
+            "DPC": "1P0",
+            "DMC": "KTC305",
+            "PSI": "51",
+            "KPA": "350",
+            "LOAD_KG": "710",
+            "LOAD_LBS": "1565",
+            "TYPE": "RADIAL TUBELESS",
+            "SAFETY": "Warning",
+            "MARK": "M+S",
+            "TRAC": "TRACTION A",
+            "TEMP": "TEMPERATURE A",
+            "TWEAR": "TREADWEAR 460",
+            "UTQG": "",
+            "INDIA": "MADE IN INDIA",
+            "P_TREAD": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+            "SIDEWALL": "SIDE WALL:2 POLYESTER",
+            "NOISE": "E4 0211093 S2WR2",
+            "ECE": "E4 02119426",
+            "ISI": "IS:15633 CM/L-3382863"
+        },
+        "result": {
+            "compliance_report": [
+                {
+                    "Parameters": "BRAND",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APOLLO",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MODEL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "APTERRA CROSS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SIZE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "215/60 R17",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "MOULD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "B8524",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "LOAD_IDX",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "96",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "SPEED",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "H",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "DOT",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "DOT",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DPC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1P0",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "DMC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "KTC305",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "PSI",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "51",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "KPA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "350",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_KG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "710",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "LOAD_LBS",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "1565",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TYPE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "RADIAL TUBELESS",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SAFETY",
+                    "Location Requirement": "Top",
+                    "Specification": "Warning",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "MARK",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "M+S",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "TRAC",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TRACTION A",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TEMP",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TEMPERATURE A",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "TWEAR",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREADWEAR 460",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                },
+                {
+                    "Parameters": "UTQG",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "\u2014",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "INDIA",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "MADE IN INDIA",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "P_TREAD",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "SIDEWALL",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "SIDE WALL:2 POLYESTER",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "NOISE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 0211093 S2WR2",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "OK"
+                },
+                {
+                    "Parameters": "ECE",
+                    "Location Requirement": "Top & Bottom",
+                    "Specification": "E4 02119426",
+                    "Mould_Top": "OK",
+                    "Mould_Bottom": "Discrepancy"
+                },
+                {
+                    "Parameters": "ISI",
+                    "Location Requirement": "Bottom",
+                    "Specification": "IS:15633 CM/L-3382863",
+                    "Mould_Top": "NF",
+                    "Mould_Bottom": "NF"
+                }
+            ],
+            "images_processed": [
+                "f89ly915",
+                "cu0k0qgt",
+                "luhb526v",
+                "4q89qf9c",
+                "6gdxgpuk",
+                "mty8gc1i"
+            ],
+            "unmatched_text_by_image": {
+                "luhb526v": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ],
+                "6gdxgpuk": [
+                    "E4",
+                    "EX1189-17\" #5"
+                ]
+            },
+            "field_conflicts_by_image": {}
+        }
+    }
+]

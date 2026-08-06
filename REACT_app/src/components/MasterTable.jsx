@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { Download } from 'lucide-react';
+import Statistics from './Statistics';
 
 export default function MasterTable({ report }) {
   const [tweaks, setTweaks] = useState({});
@@ -30,6 +31,17 @@ export default function MasterTable({ report }) {
 
   const statusOptions = ['OK', 'NF'];
   const columns = Object.keys(report[0]);
+
+  const tweakedReport = report.map((row, i) => {
+    let newRow = { ...row };
+    columns.forEach(col => {
+      let tweakKey = `${i}-${col}`;
+      if (tweaks.hasOwnProperty(tweakKey)) {
+        newRow[col] = tweaks[tweakKey];
+      }
+    });
+    return newRow;
+  });
 
   const handleDownloadPDF = () => {
     const doc = new jsPDF('landscape');
@@ -75,6 +87,7 @@ export default function MasterTable({ report }) {
 
   return (
     <div>
+      <Statistics report={tweakedReport} />
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
         <button className="btn btn-primary" onClick={handleDownloadPDF} style={{ padding: '0.5rem 1rem' }}>
           <Download size={16} /> Download PDF

@@ -42,9 +42,9 @@ export default function ImageUploader({ side, onUpload }) {
         onDrop={handleDrop}
         onClick={() => fileInputRef.current.click()}
       >
-        <UploadCloud className="uploader-icon" size={48} />
-        <p>Click or drag to upload {side.toLowerCase()}-side tire images</p>
-        <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
+        <UploadCloud className="uploader-icon" size={32} />
+        <p style={{ fontSize: '0.9rem', margin: 0 }}>Click or drag to upload {side.toLowerCase()}-side images</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
           Supports: PNG, JPG, JPEG, BMP, WEBP
         </p>
         <input 
