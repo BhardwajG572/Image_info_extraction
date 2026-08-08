@@ -554,6 +554,8 @@ tr:hover td {
 
 .rc-table-wrapper {
   width: 100%;
+  max-height: 65vh;
+  overflow-y: auto;
   overflow-x: auto;
 }
 
@@ -577,6 +579,10 @@ tr:hover td {
   font-weight: 600;
   color: var(--text-bold);
   text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 0 var(--border), 0 -1px 0 var(--border);
 }
 
 .rc-table tbody tr:hover td {

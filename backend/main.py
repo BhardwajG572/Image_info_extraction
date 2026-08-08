@@ -61,6 +61,45 @@ def list_models():
         "models": {k: {"model_id": v["model_id"]} for k, v in AVAILABLE_MODELS.items()},
     }
 
+DYNAMIC_SKUS_FILE = "backend/dynamic_skus.json"
+
+@app.get("/skus")
+def get_skus():
+    if not os.path.exists(DYNAMIC_SKUS_FILE):
+        return {"skus": {}}
+    try:
+        with open(DYNAMIC_SKUS_FILE, "r", encoding="utf-8") as f:
+            skus = json.load(f)
+        return {"skus": skus}
+    except Exception as e:
+        print(f"Failed to read skus: {e}")
+        return {"skus": {}}
+
+class SaveSkuRequest(BaseModel):
+    name: str
+    metadata: dict
+    parameters: list
+
+@app.post("/skus")
+def save_sku(req: SaveSkuRequest):
+    skus = {}
+    if os.path.exists(DYNAMIC_SKUS_FILE):
+        try:
+            with open(DYNAMIC_SKUS_FILE, "r", encoding="utf-8") as f:
+                skus = json.load(f)
+        except Exception:
+            pass
+            
+    skus[req.name] = {
+        "metadata": req.metadata,
+        "parameters": req.parameters
+    }
+    
+    with open(DYNAMIC_SKUS_FILE, "w", encoding="utf-8") as f:
+        json.dump(skus, f, indent=4)
+        
+    return {"status": "ok", "name": req.name}
+
 @app.get("/fields")
 def list_fields():
     return {

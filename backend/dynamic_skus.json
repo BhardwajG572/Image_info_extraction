@@ -1,0 +1,2341 @@
+{
+    "APOLLO APTERRA CROSS 215/60 R17": {
+        "metadata": {
+            "material_code": "RLGIW0APC3AH2",
+            "description": "215/60 R17 96H APTERRA CROSS (MS) TL - D",
+            "rev": "1",
+            "date": "",
+            "gt_code": "GT8048",
+            "gt_iden": "WHITE",
+            "gt_wgt": "10.015 \u00b1 0.3 kg",
+            "plant": "1007 - Apollo Chennai"
+        },
+        "parameters": [
+            {
+                "name": "Size designation",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "215/60 R17",
+                "variants": [
+                    "215/60 R17",
+                    "215/60R17",
+                    "215/60 r 17",
+                    "215/60r17",
+                    "215 60 R 17",
+                    "215/60 R 17",
+                    "215/60R 17",
+                    "215/60 R17",
+                    "21560R17"
+                ]
+            },
+            {
+                "name": "Load index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "96",
+                "variants": [
+                    "96"
+                ]
+            },
+            {
+                "name": "Speed index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "H",
+                "variants": [
+                    "H",
+                    "98H",
+                    "98 H"
+                ]
+            },
+            {
+                "name": "Brand",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "APOLLO",
+                "variants": [
+                    "APOLLO",
+                    "apollo",
+                    "aPOLLO",
+                    "ap0llo",
+                    "ap0ll0"
+                ]
+            },
+            {
+                "name": "Productline",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "APTERRA CROSS",
+                "variants": [
+                    "APTERRA CROSS",
+                    "TERRA CROSS",
+                    "apterra cross",
+                    "CROSS",
+                    "APTERRA",
+                    "Apterra Cross",
+                    "APTERRA-CROSS",
+                    "APTERRACROSS"
+                ]
+            },
+            {
+                "name": "Tubetype/tubeless",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "RADIAL TUBELESS",
+                "variants": [
+                    "RADIAL TUBELESS",
+                    "TUBELESS"
+                ]
+            },
+            {
+                "name": "Load index class",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "DOT marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "DOT",
+                "variants": [
+                    "DOT",
+                    "D0T"
+                ]
+            },
+            {
+                "name": "DOT Plant Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1P0",
+                "variants": [
+                    "1P0",
+                    "1PO",
+                    "iPO",
+                    "IPO",
+                    "IP0"
+                ]
+            },
+            {
+                "name": "DOT Manufacturers Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "KTC305",
+                "variants": [
+                    "KTC305",
+                    "KTC3O5",
+                    "KTC30S"
+                ]
+            },
+            {
+                "name": "Utqg Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES",
+                    "UTQG",
+                    "UTQG A",
+                    "UTQG B",
+                    "UTQG A/B"
+                ]
+            },
+            {
+                "name": "Temperature",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TEMPERATURE A",
+                    "Temperature A",
+                    "TEMPERATUREA"
+                ]
+            },
+            {
+                "name": "Traction",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TRACTION A",
+                    "Traction A",
+                    "TRACTIONA"
+                ]
+            },
+            {
+                "name": "Tread wear",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "460",
+                "variants": [
+                    "460",
+                    "TREADWEAR 460",
+                    "Treadwear 460",
+                    "TREADWEAR460"
+                ]
+            },
+            {
+                "name": "Tread Wear Indicator (TWI)",
+                "uom": "mm",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES"
+                ]
+            },
+            {
+                "name": "ISI Marking",
+                "uom": "",
+                "location": "Bottom",
+                "specification": "IS:15633 CM/L-1234567",
+                "variants": [
+                    "IS:15633 CM/L-1234567",
+                    "CM/L-1234567"
+                ]
+            },
+            {
+                "name": "E-appr. code (S/W/R)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 0211093 S2WR2",
+                "variants": [
+                    "E4 0211093 S2WR2",
+                    "E40211093 S2WR2",
+                    "E4 0211093S2WR2",
+                    "E40211093S2WR2",
+                    "0211093 S2WR2",
+                    "0211093S2WR2"
+                ]
+            },
+            {
+                "name": "E-approval code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 02119426",
+                "variants": [
+                    "E4 02119426",
+                    "E402119426",
+                    "02119426"
+                ]
+            },
+            {
+                "name": "Inmetro 200 engraved",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Indonesia certificate (SNI)",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Philipinnes certificate (PBS)",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "AIS Marking",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "China certificate (CCC)",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Winter indication",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "M+S Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "M+S",
+                "variants": [
+                    "M+S",
+                    "MS",
+                    "M S",
+                    "M&S"
+                ]
+            },
+            {
+                "name": "Directional",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Inner side",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Outer side",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "EV Ready",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Sustainability",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Giugiaro Design",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Adventure comfort",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "OE SPECIFIC MARKING",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Made in",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MADE IN INDIA",
+                "variants": [
+                    "MADE IN INDIA",
+                    "MADE IN IND1A",
+                    "MADE IN INDlA",
+                    "MADE IN INDIA",
+                    "MADEININDIA",
+                    "INDIA",
+                    "iNDIA"
+                ]
+            },
+            {
+                "name": "Safety warning",
+                "uom": "",
+                "location": "Top",
+                "specification": "MANDATORY",
+                "variants": [
+                    "MANDATORY",
+                    "WARNING",
+                    "Warning",
+                    "SAFETY WARNING",
+                    "SAFETY WARNIN",
+                    "SAFETY WARNI",
+                    "SAFETY WARN",
+                    "SAFETY WA",
+                    "SAFETY W",
+                    "SAFETY",
+                    "SAFETY"
+                ]
+            },
+            {
+                "name": "Plies tread",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1PE+2STL+1NYL",
+                "variants": [
+                    "1PE+2STL+1NYL",
+                    "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD 1 POLYESTER + 2 STEEL",
+                    "1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD: 2 PLIES"
+                ]
+            },
+            {
+                "name": "Plies sidewall",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "2 POLYESTER",
+                "variants": [
+                    "2 POLYESTER",
+                    "SIDE WALL:2 POLYESTER",
+                    "SIDE WALL:2",
+                    "SIDE WALL 2",
+                    "SIDE WALL 2 POLYESTER",
+                    "2POLYESTER"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "350",
+                "variants": [
+                    "350",
+                    "350KPA",
+                    "350 KPA",
+                    "350kPa",
+                    "350 KPA",
+                    "350kpa"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "51",
+                "variants": [
+                    "51",
+                    "51 PSI",
+                    "51PSI",
+                    "51 psi",
+                    "51psi"
+                ]
+            },
+            {
+                "name": "Maximum Load (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "710",
+                "variants": [
+                    "710",
+                    "710 KG",
+                    "710KG",
+                    "710 kg",
+                    "710kg"
+                ]
+            },
+            {
+                "name": "Maximum Load (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "1565",
+                "variants": [
+                    "1565",
+                    "1565 LBS",
+                    "1565LBS",
+                    "1565 lbs",
+                    "1565lbs"
+                ]
+            },
+            {
+                "name": "Maximum Load Single (LBS)",
+                "uom": "lbs",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Single (KG)",
+                "uom": "kg",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (LBS)",
+                "uom": "lbs",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (KG)",
+                "uom": "kg",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (PSI)",
+                "uom": "psi",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (KPA)",
+                "uom": "kPa",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (PSI)",
+                "uom": "psi",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (KPA)",
+                "uom": "kPa",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Load range",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Ply rating",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "p_max testing",
+                "uom": "kPa",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Mould Drawing No",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Mould Segment",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Side Plate Id",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "FITMENT",
+                "uom": "",
+                "location": "",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Manufacture date code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WWYY",
+                "variants": [
+                    "WWYY"
+                ]
+            },
+            {
+                "name": "Mold reference number",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "B8524-**",
+                "variants": [
+                    "B8524-**",
+                    "B8524",
+                    "B8S24-32",
+                    "B8524-32",
+                    "B8S24",
+                    "b8524",
+                    "B 8524",
+                    "B 8524",
+                    "B8524",
+                    "8524"
+                ]
+            },
+            {
+                "name": "Cure Tyre Identification",
+                "uom": "",
+                "location": "",
+                "specification": "WHITE",
+                "variants": [
+                    "WHITE"
+                ]
+            }
+        ]
+    },
+    "My Custom SKU": {
+        "metadata": {
+            "material_code": "MICHELIN PRIMACY 4 225/55 R18",
+            "description": "225/55 R18 98V PRIMACY 4",
+            "rev": "2",
+            "date": "12-Aug-2026",
+            "gt_code": "MIC9921",
+            "gt_iden": "BLUE",
+            "gt_wgt": "11.200 \u00b1 0.5 kg",
+            "plant": "2001 - Michelin Plant"
+        },
+        "parameters": [
+            {
+                "name": "Size designation",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "225/55 R18",
+                "variants": [
+                    "225/55 R18",
+                    "225/55R18",
+                    "225 55 R18"
+                ]
+            },
+            {
+                "name": "Load index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "98",
+                "variants": [
+                    "98"
+                ]
+            },
+            {
+                "name": "Speed index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "V",
+                "variants": [
+                    "V",
+                    "98V",
+                    "98 V"
+                ]
+            },
+            {
+                "name": "Brand",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MICHELIN",
+                "variants": [
+                    "MICHELIN",
+                    "michelin",
+                    "Michelin"
+                ]
+            },
+            {
+                "name": "Productline",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "APTERRA CROSS",
+                "variants": [
+                    "APTERRA CROSS",
+                    "TERRA CROSS",
+                    "apterra cross",
+                    "CROSS",
+                    "APTERRA",
+                    "Apterra Cross",
+                    "APTERRA-CROSS",
+                    "APTERRACROSS"
+                ]
+            },
+            {
+                "name": "Tubetype/tubeless",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "RADIAL TUBELESS",
+                "variants": [
+                    "RADIAL TUBELESS",
+                    "TUBELESS"
+                ]
+            },
+            {
+                "name": "Load index class",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "DOT marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "DOT",
+                "variants": [
+                    "DOT",
+                    "D0T"
+                ]
+            },
+            {
+                "name": "DOT Plant Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1P0",
+                "variants": [
+                    "1P0",
+                    "1PO",
+                    "iPO",
+                    "IPO",
+                    "IP0"
+                ]
+            },
+            {
+                "name": "DOT Manufacturers Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "KTC305",
+                "variants": [
+                    "KTC305",
+                    "KTC3O5",
+                    "KTC30S"
+                ]
+            },
+            {
+                "name": "Utqg Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES",
+                    "UTQG",
+                    "UTQG A",
+                    "UTQG B",
+                    "UTQG A/B"
+                ]
+            },
+            {
+                "name": "Temperature",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TEMPERATURE A",
+                    "Temperature A",
+                    "TEMPERATUREA"
+                ]
+            },
+            {
+                "name": "Traction",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TRACTION A",
+                    "Traction A",
+                    "TRACTIONA"
+                ]
+            },
+            {
+                "name": "Tread wear",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "460",
+                "variants": [
+                    "460",
+                    "TREADWEAR 460",
+                    "Treadwear 460",
+                    "TREADWEAR460"
+                ]
+            },
+            {
+                "name": "Tread Wear Indicator (TWI)",
+                "uom": "mm",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES"
+                ]
+            },
+            {
+                "name": "ISI Marking",
+                "uom": "",
+                "location": "Bottom",
+                "specification": "IS:15633 CM/L-1234567",
+                "variants": [
+                    "IS:15633 CM/L-1234567",
+                    "CM/L-1234567"
+                ]
+            },
+            {
+                "name": "E-appr. code (S/W/R)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 0211093 S2WR2",
+                "variants": [
+                    "E4 0211093 S2WR2",
+                    "E40211093 S2WR2",
+                    "E4 0211093S2WR2",
+                    "E40211093S2WR2",
+                    "0211093 S2WR2",
+                    "0211093S2WR2"
+                ]
+            },
+            {
+                "name": "E-approval code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 02119426",
+                "variants": [
+                    "E4 02119426",
+                    "E402119426",
+                    "02119426"
+                ]
+            },
+            {
+                "name": "Inmetro 200 engraved",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Indonesia certificate (SNI)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Philipinnes certificate (PBS)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "AIS Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "China certificate (CCC)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Winter indication",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "M+S Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "M+S",
+                "variants": [
+                    "M+S",
+                    "MS",
+                    "M S",
+                    "M&S"
+                ]
+            },
+            {
+                "name": "Directional",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Inner side",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Outer side",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "EV Ready",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Sustainability",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Giugiaro Design",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Adventure comfort",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "OE SPECIFIC MARKING",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Made in",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MADE IN INDIA",
+                "variants": [
+                    "MADE IN INDIA",
+                    "MADE IN IND1A",
+                    "MADE IN INDlA",
+                    "MADE IN INDIA",
+                    "MADEININDIA",
+                    "INDIA",
+                    "iNDIA"
+                ]
+            },
+            {
+                "name": "Safety warning",
+                "uom": "",
+                "location": "Top",
+                "specification": "MANDATORY",
+                "variants": [
+                    "MANDATORY",
+                    "WARNING",
+                    "Warning",
+                    "SAFETY WARNING",
+                    "SAFETY WARNIN",
+                    "SAFETY WARNI",
+                    "SAFETY WARN",
+                    "SAFETY WA",
+                    "SAFETY W",
+                    "SAFETY",
+                    "SAFETY"
+                ]
+            },
+            {
+                "name": "Plies tread",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1PE+2STL+1NYL",
+                "variants": [
+                    "1PE+2STL+1NYL",
+                    "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD 1 POLYESTER + 2 STEEL",
+                    "1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD: 2 PLIES"
+                ]
+            },
+            {
+                "name": "Plies sidewall",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "2 POLYESTER",
+                "variants": [
+                    "2 POLYESTER",
+                    "SIDE WALL:2 POLYESTER",
+                    "SIDE WALL:2",
+                    "SIDE WALL 2",
+                    "SIDE WALL 2 POLYESTER",
+                    "2POLYESTER"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "350",
+                "variants": [
+                    "350",
+                    "350KPA",
+                    "350 KPA",
+                    "350kPa",
+                    "350 KPA",
+                    "350kpa"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "51",
+                "variants": [
+                    "51",
+                    "51 PSI",
+                    "51PSI",
+                    "51 psi",
+                    "51psi"
+                ]
+            },
+            {
+                "name": "Maximum Load (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "710",
+                "variants": [
+                    "710",
+                    "710 KG",
+                    "710KG",
+                    "710 kg",
+                    "710kg"
+                ]
+            },
+            {
+                "name": "Maximum Load (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "1565",
+                "variants": [
+                    "1565",
+                    "1565 LBS",
+                    "1565LBS",
+                    "1565 lbs",
+                    "1565lbs"
+                ]
+            },
+            {
+                "name": "Maximum Load Single (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Single (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Load range",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Ply rating",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "p_max testing",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Mould Drawing No",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Mould Segment",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Side Plate Id",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "FITMENT",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Manufacture date code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WWYY",
+                "variants": [
+                    "WWYY"
+                ]
+            },
+            {
+                "name": "Mold reference number",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "B8524-**",
+                "variants": [
+                    "B8524-**",
+                    "B8524",
+                    "B8S24-32",
+                    "B8524-32",
+                    "B8S24",
+                    "b8524",
+                    "B 8524",
+                    "B 8524",
+                    "B8524",
+                    "8524"
+                ]
+            },
+            {
+                "name": "Cure Tyre Identification",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WHITE",
+                "variants": [
+                    "WHITE"
+                ]
+            }
+        ]
+    },
+    "MICHELIN": {
+        "metadata": {
+            "material_code": "MICHELIN PRIMACY 4 225/55 R18",
+            "description": "225/55 R18 98V PRIMACY 4",
+            "rev": "2",
+            "date": "12-Aug-2026",
+            "gt_code": "MIC9921",
+            "gt_iden": "BLUE",
+            "gt_wgt": "11.200 \u00b1 0.5 kg",
+            "plant": "2001 - Michelin Plant"
+        },
+        "parameters": [
+            {
+                "name": "Size designation",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "225/55 R18",
+                "variants": [
+                    "225/55 R18",
+                    "225/55R18",
+                    "225 55 R18"
+                ]
+            },
+            {
+                "name": "Load index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "98",
+                "variants": [
+                    "98"
+                ]
+            },
+            {
+                "name": "Speed index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "V",
+                "variants": [
+                    "V",
+                    "98V",
+                    "98 V"
+                ]
+            },
+            {
+                "name": "Brand",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MICHELIN",
+                "variants": [
+                    "MICHELIN",
+                    "michelin",
+                    "Michelin"
+                ]
+            },
+            {
+                "name": "Productline",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "APTERRA CROSS",
+                "variants": [
+                    "APTERRA CROSS",
+                    "TERRA CROSS",
+                    "apterra cross",
+                    "CROSS",
+                    "APTERRA",
+                    "Apterra Cross",
+                    "APTERRA-CROSS",
+                    "APTERRACROSS"
+                ]
+            },
+            {
+                "name": "Tubetype/tubeless",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "RADIAL TUBELESS",
+                "variants": [
+                    "RADIAL TUBELESS",
+                    "TUBELESS"
+                ]
+            },
+            {
+                "name": "Load index class",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "DOT marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "DOT",
+                "variants": [
+                    "DOT",
+                    "D0T"
+                ]
+            },
+            {
+                "name": "DOT Plant Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1P0",
+                "variants": [
+                    "1P0",
+                    "1PO",
+                    "iPO",
+                    "IPO",
+                    "IP0"
+                ]
+            },
+            {
+                "name": "DOT Manufacturers Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "KTC305",
+                "variants": [
+                    "KTC305",
+                    "KTC3O5",
+                    "KTC30S"
+                ]
+            },
+            {
+                "name": "Utqg Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES",
+                    "UTQG",
+                    "UTQG A",
+                    "UTQG B",
+                    "UTQG A/B"
+                ]
+            },
+            {
+                "name": "Temperature",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TEMPERATURE A",
+                    "Temperature A",
+                    "TEMPERATUREA"
+                ]
+            },
+            {
+                "name": "Traction",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TRACTION A",
+                    "Traction A",
+                    "TRACTIONA"
+                ]
+            },
+            {
+                "name": "Tread wear",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "460",
+                "variants": [
+                    "460",
+                    "TREADWEAR 460",
+                    "Treadwear 460",
+                    "TREADWEAR460"
+                ]
+            },
+            {
+                "name": "Tread Wear Indicator (TWI)",
+                "uom": "mm",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES"
+                ]
+            },
+            {
+                "name": "ISI Marking",
+                "uom": "",
+                "location": "Bottom",
+                "specification": "IS:15633 CM/L-1234567",
+                "variants": [
+                    "IS:15633 CM/L-1234567",
+                    "CM/L-1234567"
+                ]
+            },
+            {
+                "name": "E-appr. code (S/W/R)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 0211093 S2WR2",
+                "variants": [
+                    "E4 0211093 S2WR2",
+                    "E40211093 S2WR2",
+                    "E4 0211093S2WR2",
+                    "E40211093S2WR2",
+                    "0211093 S2WR2",
+                    "0211093S2WR2"
+                ]
+            },
+            {
+                "name": "E-approval code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 02119426",
+                "variants": [
+                    "E4 02119426",
+                    "E402119426",
+                    "02119426"
+                ]
+            },
+            {
+                "name": "Inmetro 200 engraved",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Indonesia certificate (SNI)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Philipinnes certificate (PBS)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "AIS Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "China certificate (CCC)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Winter indication",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "M+S Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "M+S",
+                "variants": [
+                    "M+S",
+                    "MS",
+                    "M S",
+                    "M&S"
+                ]
+            },
+            {
+                "name": "Directional",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Inner side",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Outer side",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "EV Ready",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Sustainability",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Giugiaro Design",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Adventure comfort",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "OE SPECIFIC MARKING",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Made in",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MADE IN INDIA",
+                "variants": [
+                    "MADE IN INDIA",
+                    "MADE IN IND1A",
+                    "MADE IN INDlA",
+                    "MADE IN INDIA",
+                    "MADEININDIA",
+                    "INDIA",
+                    "iNDIA"
+                ]
+            },
+            {
+                "name": "Safety warning",
+                "uom": "",
+                "location": "Top",
+                "specification": "MANDATORY",
+                "variants": [
+                    "MANDATORY",
+                    "WARNING",
+                    "Warning",
+                    "SAFETY WARNING",
+                    "SAFETY WARNIN",
+                    "SAFETY WARNI",
+                    "SAFETY WARN",
+                    "SAFETY WA",
+                    "SAFETY W",
+                    "SAFETY",
+                    "SAFETY"
+                ]
+            },
+            {
+                "name": "Plies tread",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1PE+2STL+1NYL",
+                "variants": [
+                    "1PE+2STL+1NYL",
+                    "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD 1 POLYESTER + 2 STEEL",
+                    "1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD: 2 PLIES"
+                ]
+            },
+            {
+                "name": "Plies sidewall",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "2 POLYESTER",
+                "variants": [
+                    "2 POLYESTER",
+                    "SIDE WALL:2 POLYESTER",
+                    "SIDE WALL:2",
+                    "SIDE WALL 2",
+                    "SIDE WALL 2 POLYESTER",
+                    "2POLYESTER"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "350",
+                "variants": [
+                    "350",
+                    "350KPA",
+                    "350 KPA",
+                    "350kPa",
+                    "350 KPA",
+                    "350kpa"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "51",
+                "variants": [
+                    "51",
+                    "51 PSI",
+                    "51PSI",
+                    "51 psi",
+                    "51psi"
+                ]
+            },
+            {
+                "name": "Maximum Load (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "710",
+                "variants": [
+                    "710",
+                    "710 KG",
+                    "710KG",
+                    "710 kg",
+                    "710kg"
+                ]
+            },
+            {
+                "name": "Maximum Load (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "1565",
+                "variants": [
+                    "1565",
+                    "1565 LBS",
+                    "1565LBS",
+                    "1565 lbs",
+                    "1565lbs"
+                ]
+            },
+            {
+                "name": "Maximum Load Single (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Single (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Load range",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Ply rating",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "p_max testing",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Mould Drawing No",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Mould Segment",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Side Plate Id",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "FITMENT",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Manufacture date code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WWYY",
+                "variants": [
+                    "WWYY"
+                ]
+            },
+            {
+                "name": "Mold reference number",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "B8524-**",
+                "variants": [
+                    "B8524-**",
+                    "B8524",
+                    "B8S24-32",
+                    "B8524-32",
+                    "B8S24",
+                    "b8524",
+                    "B 8524",
+                    "B 8524",
+                    "B8524",
+                    "8524"
+                ]
+            },
+            {
+                "name": "Cure Tyre Identification",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WHITE",
+                "variants": [
+                    "WHITE"
+                ]
+            }
+        ]
+    },
+    "mrf": {
+        "metadata": {
+            "material_code": "MRF",
+            "description": "45/Rt",
+            "rev": "2",
+            "date": "12-Aug-2026",
+            "gt_code": "MIC9921",
+            "gt_iden": "BLUE",
+            "gt_wgt": "11.200 \u00b1 0.5 kg",
+            "plant": "2001 - Michelin Plant"
+        },
+        "parameters": [
+            {
+                "name": "Size designation",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "RT98",
+                "variants": [
+                    "225/55 R18",
+                    "225/55R18",
+                    "225 55 R18",
+                    "rt 98",
+                    "rt98"
+                ]
+            },
+            {
+                "name": "Load index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "98",
+                "variants": [
+                    "98"
+                ]
+            },
+            {
+                "name": "Speed index",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "V",
+                "variants": [
+                    "V",
+                    "98V",
+                    "98 V"
+                ]
+            },
+            {
+                "name": "Brand",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MICHELIN",
+                "variants": [
+                    "MICHELIN",
+                    "michelin",
+                    "Michelin"
+                ]
+            },
+            {
+                "name": "Productline",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "APTERRA CROSS",
+                "variants": [
+                    "APTERRA CROSS",
+                    "TERRA CROSS",
+                    "apterra cross",
+                    "CROSS",
+                    "APTERRA",
+                    "Apterra Cross",
+                    "APTERRA-CROSS",
+                    "APTERRACROSS"
+                ]
+            },
+            {
+                "name": "Tubetype/tubeless",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "RADIAL TUBELESS",
+                "variants": [
+                    "RADIAL TUBELESS",
+                    "TUBELESS"
+                ]
+            },
+            {
+                "name": "Load index class",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "DOT marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "yut",
+                "variants": [
+                    "DOT",
+                    "D0T",
+                    "YITP"
+                ]
+            },
+            {
+                "name": "DOT Plant Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1P0",
+                "variants": [
+                    "1P0",
+                    "1PO",
+                    "iPO",
+                    "IPO",
+                    "IP0"
+                ]
+            },
+            {
+                "name": "DOT Manufacturers Code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "KTC305",
+                "variants": [
+                    "KTC305",
+                    "KTC3O5",
+                    "KTC30S"
+                ]
+            },
+            {
+                "name": "Utqg Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES",
+                    "UTQG",
+                    "UTQG A",
+                    "UTQG B",
+                    "UTQG A/B"
+                ]
+            },
+            {
+                "name": "Temperature",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TEMPERATURE A",
+                    "Temperature A",
+                    "TEMPERATUREA"
+                ]
+            },
+            {
+                "name": "Traction",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "A",
+                "variants": [
+                    "A",
+                    "TRACTION A",
+                    "Traction A",
+                    "TRACTIONA"
+                ]
+            },
+            {
+                "name": "Tread wear",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "460",
+                "variants": [
+                    "460",
+                    "TREADWEAR 460",
+                    "Treadwear 460",
+                    "TREADWEAR460"
+                ]
+            },
+            {
+                "name": "Tread Wear Indicator (TWI)",
+                "uom": "mm",
+                "location": "Top & Bottom",
+                "specification": "YES",
+                "variants": [
+                    "YES"
+                ]
+            },
+            {
+                "name": "ISI Marking",
+                "uom": "",
+                "location": "Bottom",
+                "specification": "IS:15633 CM/L-1234567",
+                "variants": [
+                    "IS:15633 CM/L-1234567",
+                    "CM/L-1234567"
+                ]
+            },
+            {
+                "name": "E-appr. code (S/W/R)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 0211093 S2WR2",
+                "variants": [
+                    "E4 0211093 S2WR2",
+                    "E40211093 S2WR2",
+                    "E4 0211093S2WR2",
+                    "E40211093S2WR2",
+                    "0211093 S2WR2",
+                    "0211093S2WR2"
+                ]
+            },
+            {
+                "name": "E-approval code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "E4 02119426",
+                "variants": [
+                    "E4 02119426",
+                    "E402119426",
+                    "02119426"
+                ]
+            },
+            {
+                "name": "Inmetro 200 engraved",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Indonesia certificate (SNI)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Philipinnes certificate (PBS)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "AIS Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "China certificate (CCC)",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Winter indication",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "M+S Marking",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "M+S",
+                "variants": [
+                    "M+S",
+                    "MS",
+                    "M S",
+                    "M&S"
+                ]
+            },
+            {
+                "name": "Directional",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Inner side",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Outer side",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "EV Ready",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Sustainability",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Giugiaro Design",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Adventure comfort",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "OE SPECIFIC MARKING",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Made in",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "MADE IN INDIA",
+                "variants": [
+                    "MADE IN INDIA",
+                    "MADE IN IND1A",
+                    "MADE IN INDlA",
+                    "MADE IN INDIA",
+                    "MADEININDIA",
+                    "INDIA",
+                    "iNDIA"
+                ]
+            },
+            {
+                "name": "Safety warning",
+                "uom": "",
+                "location": "Top",
+                "specification": "MANDATORY",
+                "variants": [
+                    "MANDATORY",
+                    "WARNING",
+                    "Warning",
+                    "SAFETY WARNING",
+                    "SAFETY WARNIN",
+                    "SAFETY WARNI",
+                    "SAFETY WARN",
+                    "SAFETY WA",
+                    "SAFETY W",
+                    "SAFETY",
+                    "SAFETY"
+                ]
+            },
+            {
+                "name": "Plies tread",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "1PE+2STL+1NYL",
+                "variants": [
+                    "1PE+2STL+1NYL",
+                    "TREAD: 1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD 1 POLYESTER + 2 STEEL",
+                    "1 POLYESTER + 2 STEEL + 1 NYLON",
+                    "POLYESTER + 2 STEEL + 1 NYLON",
+                    "TREAD: 2 PLIES"
+                ]
+            },
+            {
+                "name": "Plies sidewall",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "2 POLYESTER",
+                "variants": [
+                    "2 POLYESTER",
+                    "SIDE WALL:2 POLYESTER",
+                    "SIDE WALL:2",
+                    "SIDE WALL 2",
+                    "SIDE WALL 2 POLYESTER",
+                    "2POLYESTER"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "350",
+                "variants": [
+                    "350",
+                    "350KPA",
+                    "350 KPA",
+                    "350kPa",
+                    "350 KPA",
+                    "350kpa"
+                ]
+            },
+            {
+                "name": "Maximum Inflation Pressure (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "51",
+                "variants": [
+                    "51",
+                    "51 PSI",
+                    "51PSI",
+                    "51 psi",
+                    "51psi"
+                ]
+            },
+            {
+                "name": "Maximum Load (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "710",
+                "variants": [
+                    "710",
+                    "710 KG",
+                    "710KG",
+                    "710 kg",
+                    "710kg"
+                ]
+            },
+            {
+                "name": "Maximum Load (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "1565",
+                "variants": [
+                    "1565",
+                    "1565 LBS",
+                    "1565LBS",
+                    "1565 lbs",
+                    "1565lbs"
+                ]
+            },
+            {
+                "name": "Maximum Load Single (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Single (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (LBS)",
+                "uom": "lbs",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Load Dual (KG)",
+                "uom": "kg",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Single (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (PSI)",
+                "uom": "psi",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Maximum Inflation Pressure Dual (KPA)",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Load range",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Ply rating",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "p_max testing",
+                "uom": "kPa",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Mould Drawing No",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Mould Segment",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Tyre Side Plate Id",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "FITMENT",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "-",
+                "variants": []
+            },
+            {
+                "name": "Manufacture date code",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WWYY",
+                "variants": [
+                    "WWYY"
+                ]
+            },
+            {
+                "name": "Mold reference number",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "B8524-**",
+                "variants": [
+                    "B8524-**",
+                    "B8524",
+                    "B8S24-32",
+                    "B8524-32",
+                    "B8S24",
+                    "b8524",
+                    "B 8524",
+                    "B 8524",
+                    "B8524",
+                    "8524"
+                ]
+            },
+            {
+                "name": "Cure Tyre Identification",
+                "uom": "",
+                "location": "Top & Bottom",
+                "specification": "WHITE",
+                "variants": [
+                    "WHITE"
+                ]
+            }
+        ]
+    }
+}

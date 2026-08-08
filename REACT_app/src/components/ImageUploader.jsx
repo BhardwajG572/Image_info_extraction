@@ -32,8 +32,8 @@ export default function ImageUploader({ side, onUpload }) {
   };
 
   return (
-    <div className="card">
-      <h3>{side === 'Top' ? '⬆️' : '⬇️'} {side} Side Upload</h3>
+    <div className="card" style={{ padding: '1rem' }}>
+      <h3 style={{ fontSize: '1rem', margin: '0 0 0.5rem 0' }}>{side === 'Top' ? '⬆️' : '⬇️'} {side} Side Upload</h3>
       <div 
         className={`uploader ${isDragActive ? 'drag-active' : ''}`}
         onDragEnter={handleDrag}
@@ -41,11 +41,12 @@ export default function ImageUploader({ side, onUpload }) {
         onDragOver={handleDrag}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current.click()}
+        style={{ padding: '0.75rem', minHeight: '80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
       >
-        <UploadCloud className="uploader-icon" size={32} />
-        <p style={{ fontSize: '0.9rem', margin: 0 }}>Click or drag to upload {side.toLowerCase()}-side images</p>
-        <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-          Supports: PNG, JPG, JPEG, BMP, WEBP
+        <UploadCloud className="uploader-icon" size={24} style={{ marginBottom: '0.25rem' }} />
+        <p style={{ fontSize: '0.85rem', margin: 0, fontWeight: 500 }}>Click or drag to upload</p>
+        <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+          {side.toLowerCase()} side image
         </p>
         <input 
           ref={fileInputRef}
@@ -53,6 +54,7 @@ export default function ImageUploader({ side, onUpload }) {
           multiple 
           accept=".png,.jpg,.jpeg,.bmp,.webp" 
           onChange={handleChange} 
+          style={{ display: 'none' }}
         />
       </div>
     </div>

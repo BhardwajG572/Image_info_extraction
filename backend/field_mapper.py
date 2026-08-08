@@ -403,24 +403,50 @@ def map_extraction_to_fields(extracted_text: List[str], sku_specifications: Opti
         
         # Check dynamic specs first
         if sku_specifications:
-            for d_field, spec_val in sku_specifications.items():
-                if not spec_val: continue
-                variants = [spec_val]
-                if isinstance(spec_val, str) and "," in spec_val:
-                    variants = [v.strip() for v in spec_val.split(",")]
-                    
-                for v in variants:
-                    if not v: continue
-                    tk_v = _tight(v)
-                    lk_v = _loose(v)
-                    if tk_raw == tk_v or lk_raw == lk_v:
-                        return d_field
-                    if len(tk_v) >= CONTAINS_MIN_LENGTH and (tk_v in tk_raw or (len(tk_raw) >= CONTAINS_MIN_LENGTH and tk_raw in tk_v)):
-                        return d_field
-                    if len(tk_v) >= FUZZY_MIN_LENGTH and len(tk_raw) >= FUZZY_MIN_LENGTH:
-                        ratio = difflib.SequenceMatcher(None, tk_raw, tk_v).ratio()
-                        if ratio >= FUZZY_SCORE_FLOOR:
+            is_new_format = "parameters" in sku_specifications
+            
+            if is_new_format:
+                for param in sku_specifications.get("parameters", []):
+                    d_field = param.get("name")
+                    if not d_field: continue
+                    variants = param.get("variants", [])
+                    if not variants:
+                        # Fallback to specification if no variants provided
+                        spec = param.get("specification")
+                        if spec:
+                            variants = [spec]
+                            
+                    for v in variants:
+                        if not v: continue
+                        tk_v = _tight(v)
+                        lk_v = _loose(v)
+                        if tk_raw == tk_v or lk_raw == lk_v:
                             return d_field
+                        if len(tk_v) >= CONTAINS_MIN_LENGTH and (tk_v in tk_raw or (len(tk_raw) >= CONTAINS_MIN_LENGTH and tk_raw in tk_v)):
+                            return d_field
+                        if len(tk_v) >= FUZZY_MIN_LENGTH and len(tk_raw) >= FUZZY_MIN_LENGTH:
+                            ratio = difflib.SequenceMatcher(None, tk_raw, tk_v).ratio()
+                            if ratio >= FUZZY_SCORE_FLOOR:
+                                return d_field
+            else:
+                for d_field, spec_val in sku_specifications.items():
+                    if not spec_val: continue
+                    variants = [spec_val]
+                    if isinstance(spec_val, str) and "," in spec_val:
+                        variants = [v.strip() for v in spec_val.split(",")]
+                        
+                    for v in variants:
+                        if not v: continue
+                        tk_v = _tight(v)
+                        lk_v = _loose(v)
+                        if tk_raw == tk_v or lk_raw == lk_v:
+                            return d_field
+                        if len(tk_v) >= CONTAINS_MIN_LENGTH and (tk_v in tk_raw or (len(tk_raw) >= CONTAINS_MIN_LENGTH and tk_raw in tk_v)):
+                            return d_field
+                        if len(tk_v) >= FUZZY_MIN_LENGTH and len(tk_raw) >= FUZZY_MIN_LENGTH:
+                            ratio = difflib.SequenceMatcher(None, tk_raw, tk_v).ratio()
+                            if ratio >= FUZZY_SCORE_FLOOR:
+                                return d_field
         
         return classify_text(raw_text)
 

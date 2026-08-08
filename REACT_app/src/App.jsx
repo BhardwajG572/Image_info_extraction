@@ -278,7 +278,7 @@ function App() {
                 <h2>Master Table (History)</h2>
                 {selectedHistoryLog.result && selectedHistoryLog.result.compliance_report ? (
                    <>
-                     <MasterTable report={selectedHistoryLog.result.compliance_report} />
+                     <MasterTable report={selectedHistoryLog.result.compliance_report} metadata={selectedHistoryLog.sku_specifications?.metadata || {}} />
                    </>
                 ) : (
                   <div className="card" style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -396,7 +396,7 @@ function App() {
                   <div>
                     <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>3. Final Report</h2>
                     {mergeResult && mergeResult.compliance_report ? (
-                       <MasterTable report={mergeResult.compliance_report} />
+                       <MasterTable report={mergeResult.compliance_report} metadata={customSkuSpec?.metadata || {}} />
                     ) : (
                       <div className="card" style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
                         Run extraction to generate the compliance report.

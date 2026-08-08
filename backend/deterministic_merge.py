@@ -26,7 +26,14 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
     active_sku_specs = sku_specifications if sku_specifications is not None else SKU_SPECIFICATIONS
     top_values: Dict[str, List[str]] = defaultdict(list)
     bottom_values: Dict[str, List[str]] = defaultdict(list)
-    all_fields = set(CANONICAL_FIELD_ORDER) | set(active_sku_specs.keys())
+    
+    is_new_format = "parameters" in active_sku_specs if active_sku_specs else False
+    if is_new_format:
+        active_fields = {p["name"] for p in active_sku_specs["parameters"] if "name" in p}
+    else:
+        active_fields = set(active_sku_specs.keys()) if active_sku_specs else set(SKU_SPECIFICATIONS.keys())
+        
+    all_fields = set(CANONICAL_FIELD_ORDER) | active_fields
 
     for item in image_extractions or []:
         if not isinstance(item, dict): continue
@@ -51,7 +58,31 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
     ordered_fields += sorted(f for f in all_fields if f not in CANONICAL_FIELD_ORDER)
 
     for field in ordered_fields:
-        spec_val = active_sku_specs.get(field)
+        if is_new_format:
+            param = next((p for p in active_sku_specs["parameters"] if p.get("name") == field), None)
+            if param:
+                spec_val = param.get("specification", "")
+                required_side = param.get("location", "Top & Bottom")
+                uom = param.get("uom", "")
+                # Initialize valid variants with normalized explicitly defined variants
+                valid_variants = [_normalize(v) for v in param.get("variants", [])]
+                if not valid_variants and spec_val:
+                    valid_variants = [_normalize(spec_val)]
+            else:
+                spec_val = ""
+                required_side = "Top & Bottom"
+                uom = ""
+                valid_variants = []
+        else:
+            spec_val = active_sku_specs.get(field)
+            required_side = SIDE_SPECIFIC_RULES.get(field, "Top & Bottom")
+            uom = ""
+            valid_variants = [_normalize(v) for v in FIELD_VARIANTS.get("params", {}).get(field, [])]
+            if spec_val:
+                for variant in str(spec_val).split(','):
+                    variant_tight = _normalize(variant)
+                    if variant_tight:
+                        valid_variants.append(variant_tight)
         
         if field == "Utqg Marking":
             top_trac = top_values.get("Traction")
@@ -85,19 +116,6 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
         top_tight = _normalize(top_agreed)
         bot_tight = _normalize(bot_agreed)
         
-        # Determine all acceptable normalized variants for this field
-        valid_variants = [_normalize(v) for v in FIELD_VARIANTS.get("params", {}).get(field, [])]
-        
-        # spec_val from the frontend can be a comma-separated list of acceptable variants
-        if spec_val:
-            for variant in str(spec_val).split(','):
-                variant_tight = _normalize(variant)
-                if variant_tight:
-                    valid_variants.append(variant_tight)
-        
-        # Determine rules for this parameter
-        required_side = SIDE_SPECIFIC_RULES.get(field, "Top & Bottom")
-        
         # --- Evaluate TOP Status ---
         status_top = "NF"
         if top_values.get(field) and top_agreed and required_side in ["Top", "Top & Bottom"]:
@@ -114,10 +132,15 @@ def merge_extractions(image_extractions: List[Dict], sku_specifications: Optiona
         if spec_val == "" and field != "Utqg Marking":
             if top_agreed: status_top = "NF"
             if bot_agreed: status_bottom = "NF"
+            
+        if required_side in ["", "-"]:
+            status_top = "—"
+            status_bottom = "—"
 
         # Update table structure to output OK/NF directly in the Mould columns
         compliance_report.append({
             "Parameters": field,
+            "UOM": uom,
             "Location Requirement": required_side,
             "Specification": spec_val if spec_val else "—",
             "Mould_Top": status_top,

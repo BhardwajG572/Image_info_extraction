@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import { Download } from 'lucide-react';
+import { Download, Check, X } from 'lucide-react';
 import Statistics from './Statistics';
 
 const PAGE_2_STEPUP_DATA = [
@@ -59,8 +59,9 @@ const PAGE_2_POINTS_DATA = [
   ["Others (If any)", ""]
 ];
 
-export default function MasterTable({ report }) {
+export default function MasterTable({ report, metadata = {} }) {
   const [tweaks, setTweaks] = useState({});
+  const [pendingTweaks, setPendingTweaks] = useState({});
   const [digitCode, setDigitCode] = useState('');
 
   if (!report || report.length === 0) {
@@ -78,11 +79,35 @@ export default function MasterTable({ report }) {
     }
   };
 
-  const handleTweak = (rowIndex, col, newValue) => {
-    setTweaks(prev => ({
+  const handlePendingChange = (rowIndex, col, newValue) => {
+    setPendingTweaks(prev => ({
       ...prev,
       [`${rowIndex}-${col}`]: newValue
     }));
+  };
+
+  const commitTweak = (rowIndex, col) => {
+    const key = `${rowIndex}-${col}`;
+    if (pendingTweaks.hasOwnProperty(key)) {
+      setTweaks(prev => ({
+        ...prev,
+        [key]: pendingTweaks[key]
+      }));
+      setPendingTweaks(prev => {
+        const next = { ...prev };
+        delete next[key];
+        return next;
+      });
+    }
+  };
+
+  const cancelTweak = (rowIndex, col) => {
+    const key = `${rowIndex}-${col}`;
+    setPendingTweaks(prev => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
   };
 
   const statusOptions = ['OK', 'NF'];
@@ -118,34 +143,51 @@ export default function MasterTable({ report }) {
       ],
       body: [
         ['', '', '', '', '', '', '', ''],
-        ['Material Code', 'Description', 'Rev.', 'Date', 'GT Code', 'GT Iden.', 'GT wgt.', 'Plant'],
-        ['RLGIW0APC3AH2', '215/60 R17 APTERRA CROSS', '1', '-', 'GT8048', 'WHITE', '10.015+- 0.3 KG', '1007-Apollo Chennai'],
-        [{ content: '13 Digit Code', colSpan: 2, styles: { fontStyle: 'bold' } }, { content: digitCode || '-', colSpan: 6 }]
       ],
       theme: 'grid',
       styles: { fontSize: 8, cellPadding: 2, lineColor: [0, 0, 0], lineWidth: 0.1 },
-      headStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0] }
+      headStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0] },
+      bodyStyles: { minCellHeight: 15 }
+    });
+
+    autoTable(doc, {
+      startY: doc.lastAutoTable.finalY,
+      head: [['Material Code', 'Description', 'Rev.', 'Date', 'GT Code', 'GT Iden.', 'GT wgt.', 'Plant']],
+      body: [
+        [
+          metadata?.material_code || '-',
+          metadata?.description || '-',
+          metadata?.rev || '-',
+          metadata?.date || '-',
+          metadata?.gt_code || '-',
+          metadata?.gt_iden || '-',
+          metadata?.gt_wgt || '-',
+          metadata?.plant || '-'
+        ],
+        [
+          { content: '13 Digit Code', colSpan: 2, styles: { fontStyle: 'bold', fillColor: [240, 240, 240] } },
+          { content: digitCode || '', colSpan: 6 }
+        ]
+      ],
+      theme: 'grid',
+      styles: { fontSize: 8, cellPadding: 2, lineColor: [0, 0, 0], lineWidth: 0.1 },
+      headStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0], halign: 'center' }
     });
 
     const tableRows = [];
 
-    report.forEach((row, i) => {
-      let originalTop = row['Mould_Top'];
-      let originalBot = row['Mould_Bottom'];
-      let tweakTopKey = `${i}-Mould_Top`;
-      let tweakBotKey = `${i}-Mould_Bottom`;
+    tweakedReport.forEach((row, i) => {
+      const hasTweakTop = tweaks.hasOwnProperty(`${i}-Mould_Top`);
+      const hasTweakBot = tweaks.hasOwnProperty(`${i}-Mould_Bottom`);
       
-      let currentTop = tweaks.hasOwnProperty(tweakTopKey) ? tweaks[tweakTopKey] : originalTop;
-      let currentBot = tweaks.hasOwnProperty(tweakBotKey) ? tweaks[tweakBotKey] : originalBot;
-      
-      let hasTweakTop = tweaks.hasOwnProperty(tweakTopKey) && tweaks[tweakTopKey] !== originalTop;
-      let hasTweakBot = tweaks.hasOwnProperty(tweakBotKey) && tweaks[tweakBotKey] !== originalBot;
+      const currentTop = row.Mould_Top === 'Mismatch' ? 'NF' : row.Mould_Top;
+      const currentBot = row.Mould_Bottom === 'Mismatch' ? 'NF' : row.Mould_Bottom;
 
       tableRows.push([
-        row['Parameters'] || row['Parameter'] || '',
-        '-',
-        row['Location Requirement'] || row['Location'] || '',
-        row['Specification'] || '',
+        row.Parameters || '',
+        row.UOM || '-',
+        row['Location Requirement'] || '',
+        row.Specification || '',
         currentTop ? `${currentTop}${hasTweakTop ? ' *' : ''}` : '',
         currentBot ? `${currentBot}${hasTweakBot ? ' *' : ''}` : '',
         '',
@@ -177,7 +219,7 @@ export default function MasterTable({ report }) {
     });
 
     // ================= PAGE 2 =================
-    doc.addPage('a4', 'portrait');
+    doc.addPage('a4', 'landscape');
     doc.setFontSize(18);
     doc.setTextColor(0);
     doc.text('Curing RC - FIRST PRODUCT CHECK CARD', 14, 22);
@@ -187,7 +229,7 @@ export default function MasterTable({ report }) {
     autoTable(doc, {
       startY: 35,
       head: [['Parameters', 'UOM', 'Tol', 'Specification', 'Mould Shop', 'Engg', 'Quality']],
-      body: PAGE_2_STEPUP_DATA.map(row => [...row, '', '', '']), // Pad empty cols
+      body: PAGE_2_STEPUP_DATA.map(row => [...row, '', '', '']),
       theme: 'grid',
       styles: { fontSize: 8, cellPadding: 2, lineColor: [0, 0, 0], lineWidth: 0.1 },
       headStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0], halign: 'center' }
@@ -196,7 +238,7 @@ export default function MasterTable({ report }) {
     autoTable(doc, {
       startY: doc.lastAutoTable.finalY + 10,
       head: [['Parameter', 'Points to be verified', 'Observation']],
-      body: PAGE_2_POINTS_DATA.map(row => [...row, '']), // Pad empty observation
+      body: PAGE_2_POINTS_DATA.map(row => [...row, '']),
       theme: 'grid',
       styles: { fontSize: 8, cellPadding: 2, lineColor: [0, 0, 0], lineWidth: 0.1 },
       headStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0] }
@@ -227,7 +269,6 @@ export default function MasterTable({ report }) {
       </div>
       
       <div className="rc-container">
-        {/* Top Header Block */}
         <div className="rc-header-title">Curing RC - FIRST PRODUCT CHECK CARD</div>
         
         <div className="rc-table-wrapper" style={{ marginBottom: '1rem' }}>
@@ -254,14 +295,14 @@ export default function MasterTable({ report }) {
                  <th>Plant</th>
                </tr>
                <tr>
-                 <td>RLGIW0APC3AH2</td>
-                 <td>215/60 R17 APTERRA CROSS</td>
-                 <td>1</td>
-                 <td>-</td>
-                 <td>GT8048</td>
-                 <td>WHITE</td>
-                 <td>10.015+- 0.3 KG</td>
-                 <td>1007-Apollo Chennai</td>
+                 <td><div title={metadata?.material_code || '-'}>{metadata?.material_code || '-'}</div></td>
+                 <td><div title={metadata?.description || '-'}>{metadata?.description || '-'}</div></td>
+                 <td><div title={metadata?.rev || '-'}>{metadata?.rev || '-'}</div></td>
+                 <td><div title={metadata?.date || '-'}>{metadata?.date || '-'}</div></td>
+                 <td><div title={metadata?.gt_code || '-'}>{metadata?.gt_code || '-'}</div></td>
+                 <td><div title={metadata?.gt_iden || '-'}>{metadata?.gt_iden || '-'}</div></td>
+                 <td><div title={metadata?.gt_wgt || '-'}>{metadata?.gt_wgt || '-'}</div></td>
+                 <td><div title={metadata?.plant || '-'}>{metadata?.plant || '-'}</div></td>
                </tr>
                <tr>
                  <th colSpan={2} style={{ textAlign: 'left', paddingLeft: '0.5rem' }}>13 Digit Code</th>
@@ -280,7 +321,6 @@ export default function MasterTable({ report }) {
            </table>
         </div>
 
-        {/* Main Data Table */}
         <div className="rc-table-wrapper">
           <table className="rc-table">
             <thead>
@@ -300,104 +340,66 @@ export default function MasterTable({ report }) {
               </tr>
             </thead>
             <tbody>
-              {report.map((row, i) => {
-                const param = row['Parameters'] || row['Parameter'] || '';
-                const location = row['Location Requirement'] || row['Location'] || '';
-                const spec = row['Specification'] || '';
-                
-                // Extract tweaks
-                const originalTop = row['Mould_Top'];
-                const originalBot = row['Mould_Bottom'];
-                
-                const currentTop = tweaks.hasOwnProperty(`${i}-Mould_Top`) ? tweaks[`${i}-Mould_Top`] : originalTop;
-                const currentBot = tweaks.hasOwnProperty(`${i}-Mould_Bottom`) ? tweaks[`${i}-Mould_Bottom`] : originalBot;
-                
-                const hasTweakTop = tweaks.hasOwnProperty(`${i}-Mould_Top`) && tweaks[`${i}-Mould_Top`] !== originalTop;
-                const hasTweakBot = tweaks.hasOwnProperty(`${i}-Mould_Bottom`) && tweaks[`${i}-Mould_Bottom`] !== originalBot;
+              {tweakedReport.map((row, i) => {
+                const keyTop = `${i}-Mould_Top`;
+                const isPendingTop = pendingTweaks.hasOwnProperty(keyTop);
+                const displayValTop = isPendingTop ? pendingTweaks[keyTop] : row.Mould_Top;
+                const isMismatchTop = displayValTop === 'NF' || displayValTop === 'Mismatch';
 
-                let optionsTop = statusOptions.includes(originalTop) ? statusOptions : Array.from(new Set([originalTop, ...statusOptions]));
-                let optionsBot = statusOptions.includes(originalBot) ? statusOptions : Array.from(new Set([originalBot, ...statusOptions]));
-
+                const keyBot = `${i}-Mould_Bottom`;
+                const isPendingBot = pendingTweaks.hasOwnProperty(keyBot);
+                const displayValBot = isPendingBot ? pendingTweaks[keyBot] : row.Mould_Bottom;
+                const isMismatchBot = displayValBot === 'NF' || displayValBot === 'Mismatch';
+                
                 return (
                   <tr key={i}>
-                    <td style={{ fontWeight: '600' }}>{param}</td>
-                    <td>-</td>
-                    <td>{location}</td>
-                    <td>{spec}</td>
-                    
-                    {/* MOULD SHOP - TOP */}
-                    <td style={{ textAlign: 'center', padding: '0.25rem' }}>
-                      {currentTop ? (
-                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
-                         <select
-                            value={currentTop}
-                            onChange={(e) => handleTweak(i, 'Mould_Top', e.target.value)}
-                            className={`status-badge ${getStatusClass(currentTop)}`}
-                            style={{
-                              border: '1px solid transparent',
-                              outline: 'none',
-                              cursor: 'pointer',
-                              appearance: 'none',
-                              paddingRight: '1rem',
-                              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'right center',
-                              fontFamily: 'inherit',
-                              margin: 0
-                            }}
-                            title="Manually override status"
-                          >
-                            {optionsTop.map(opt => (
-                              <option key={opt} value={opt} style={{ background: 'var(--surface)', color: 'var(--text)' }}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                          {hasTweakTop && (
-                            <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>*</span>
-                          )}
-                       </div>
-                      ) : null}
+                    <td title={row.Parameters}>{row.Parameters}</td>
+                    <td title={row.UOM || '-'}>{row.UOM || '-'}</td>
+                    <td title={row['Location Requirement']}>{row['Location Requirement']}</td>
+                    <td title={row.Specification}>{row.Specification}</td>
+                    <td className={`status-cell ${getStatusClass(displayValTop)}`} title={displayValTop}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                        <select 
+                          value={displayValTop} 
+                          onChange={(e) => handlePendingChange(i, 'Mould_Top', e.target.value)}
+                          className={`status-select ${isMismatchTop ? 'mismatch-text' : ''}`}
+                        >
+                          <option value={displayValTop}>{displayValTop}</option>
+                          {statusOptions.filter(o => o !== displayValTop).map(opt => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                        {isPendingTop && (
+                           <div style={{ display: 'flex', gap: '2px' }}>
+                             <button onClick={() => commitTweak(i, 'Mould_Top')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--success)' }} title="Save Change"><Check size={16}/></button>
+                             <button onClick={() => cancelTweak(i, 'Mould_Top')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--error)' }} title="Cancel"><X size={16}/></button>
+                           </div>
+                        )}
+                        {!isPendingTop && tweaks.hasOwnProperty(keyTop) && <span className="tweak-indicator">*</span>}
+                      </div>
                     </td>
-                    
-                    {/* MOULD SHOP - BOTTOM */}
-                    <td style={{ textAlign: 'center', padding: '0.25rem' }}>
-                      {currentBot ? (
-                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
-                         <select
-                            value={currentBot}
-                            onChange={(e) => handleTweak(i, 'Mould_Bottom', e.target.value)}
-                            className={`status-badge ${getStatusClass(currentBot)}`}
-                            style={{
-                              border: '1px solid transparent',
-                              outline: 'none',
-                              cursor: 'pointer',
-                              appearance: 'none',
-                              paddingRight: '1rem',
-                              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'right center',
-                              fontFamily: 'inherit',
-                              margin: 0
-                            }}
-                            title="Manually override status"
-                          >
-                            {optionsBot.map(opt => (
-                              <option key={opt} value={opt} style={{ background: 'var(--surface)', color: 'var(--text)' }}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                          {hasTweakBot && (
-                            <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>*</span>
-                          )}
-                       </div>
-                      ) : null}
+                    <td className={`status-cell ${getStatusClass(displayValBot)}`} title={displayValBot}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                        <select 
+                          value={displayValBot} 
+                          onChange={(e) => handlePendingChange(i, 'Mould_Bottom', e.target.value)}
+                          className={`status-select ${isMismatchBot ? 'mismatch-text' : ''}`}
+                        >
+                          <option value={displayValBot}>{displayValBot}</option>
+                          {statusOptions.filter(o => o !== displayValBot).map(opt => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                        {isPendingBot && (
+                           <div style={{ display: 'flex', gap: '2px' }}>
+                             <button onClick={() => commitTweak(i, 'Mould_Bottom')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--success)' }} title="Save Change"><Check size={16}/></button>
+                             <button onClick={() => cancelTweak(i, 'Mould_Bottom')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--error)' }} title="Cancel"><X size={16}/></button>
+                           </div>
+                        )}
+                        {!isPendingBot && tweaks.hasOwnProperty(keyBot) && <span className="tweak-indicator">*</span>}
+                      </div>
                     </td>
-                    
-                    {/* QUALITY - TOP */}
                     <td></td>
-                    {/* QUALITY - BOTTOM */}
                     <td></td>
                   </tr>
                 );
@@ -406,7 +408,6 @@ export default function MasterTable({ report }) {
           </table>
         </div>
 
-        {/* --- PAGE 2 DATA --- */}
         <div className="rc-header-title" style={{ marginTop: '4rem', fontSize: '1.25rem' }}>CURING PRESS STEPUP VERIFICATION</div>
         <div className="rc-table-wrapper" style={{ marginBottom: '2rem' }}>
           <table className="rc-table">
